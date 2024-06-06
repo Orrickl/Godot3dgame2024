@@ -33,7 +33,7 @@ shape = SubResource( 1 )
 mesh = SubResource( 2 )
 
 [node name="StaticBody" type="StaticBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.139035, -0.959228, -0.173227 )
+transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 1, 215, -1, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
 shape = SubResource( 3 )
@@ -41,21 +41,31 @@ shape = SubResource( 3 )
 [node name="MeshInstance" type="MeshInstance" parent="StaticBody"]
 mesh = SubResource( 4 )
 
-[node name="KinematicBody" type="KinematicBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.38419e-07, 0 )
+[node name="player" type="KinematicBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.52681, 0 )
 script = ExtResource( 2 )
 
-[node name="PlayerShape" type="CollisionShape" parent="KinematicBody"]
+[node name="PlayerShape" type="CollisionShape" parent="player"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.0465719, 2.87057, 0.0713272 )
 shape = SubResource( 5 )
 
-[node name="MeshInstance" type="MeshInstance" parent="KinematicBody/PlayerShape"]
+[node name="MeshInstance" type="MeshInstance" parent="player/PlayerShape"]
 transform = Transform( 1.437, 0, 0, 0, 1.505, 0, 0, 0, 1.687, 0, 0, 0 )
 mesh = SubResource( 6 )
 
-[node name="SpringArm" type="SpringArm" parent="KinematicBody"]
+[node name="SpringArm" type="SpringArm" parent="player"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.55417, 0 )
 spring_length = 12.0
 margin = 0.2
 script = ExtResource( 3 )
 
-[node name="Camera" type="Camera" parent="KinematicBody/SpringArm"]
+[node name="Camera" type="ClippedCamera" parent="player/SpringArm"]
+far = 2222.0
+
+[node name="Label" type="Label" parent="."]
+margin_left = -1.0
+margin_top = 450.0
+margin_right = 1022.0
+margin_bottom = 598.0
+text = "HI
+"

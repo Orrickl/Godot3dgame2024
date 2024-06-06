@@ -4,7 +4,7 @@ extends KinematicBody
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-export var speed := 0.01
+export var speed := 18
 export var jump_strength := 20.0
 export var gravity := 50.0
 
@@ -18,11 +18,13 @@ func _physics_process(delta: float) -> void:
 	var move_direction := Vector3.ZERO
 	move_direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	move_direction.z = Input.get_action_strength("back") - Input.get_action_strength("forward")
-	move_direction = move_direction.rotated(Vector3.UP, _spring_arm.rotation.y).normalized()
+	move_direction = move_direction.rotated(Vector3.UP, _spring_arm.rotation.y)
 	
 	_velocity.x = move_direction.x * speed
 	_velocity.z = move_direction.z * speed
+	
 	_velocity.y -= gravity * delta
+
 	
 	var just_landed := is_on_floor() and _snap_vector == Vector3.ZERO
 	var is_jumping := is_on_floor() and Input.is_action_just_pressed("jump")
@@ -40,5 +42,4 @@ func _physics_process(delta: float) -> void:
 func _process(_delta: float) -> void:
 	_spring_arm.translation = translation
 
-func _ready():
-	pass # Replace with function body.
+
