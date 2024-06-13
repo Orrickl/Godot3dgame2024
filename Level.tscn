@@ -1,8 +1,9 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://timer.gd" type="Script" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
 [ext_resource path="res://CameraJoint.gd" type="Script" id=3]
+[ext_resource path="res://Run.fbx" type="PackedScene" id=4]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 1, 1.001, 1.001 )
@@ -20,8 +21,6 @@ size = Vector3( 30, 2, 30 )
 [sub_resource type="CapsuleShape" id=5]
 radius = 1.46669
 height = 2.21212
-
-[sub_resource type="CapsuleMesh" id=6]
 
 [sub_resource type="CapsuleShape" id=11]
 
@@ -45,6 +44,15 @@ extents = Vector3( 0.861979, 2.8069, 14.8677 )
 [sub_resource type="PrismMesh" id=14]
 
 [sub_resource type="CubeMesh" id=15]
+
+[sub_resource type="ProceduralSky" id=17]
+
+[sub_resource type="Environment" id=18]
+background_mode = 2
+background_sky = SubResource( 17 )
+tonemap_mode = 2
+auto_exposure_enabled = true
+ss_reflections_enabled = true
 
 [node name="Level" type="Spatial"]
 
@@ -73,12 +81,14 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.52681, 0 )
 script = ExtResource( 2 )
 
 [node name="PlayerShape" type="CollisionShape" parent="player"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.0465719, 2.87057, 0.0713272 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.20971, 2.76891, 0.417154 )
 shape = SubResource( 5 )
 
 [node name="MeshInstance" type="MeshInstance" parent="player/PlayerShape"]
-transform = Transform( 1.437, 0, 0, 0, 1.505, 0, 0, 0, 1.687, 0, 0, 0 )
-mesh = SubResource( 6 )
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.75, 0, 0, 0 )
+
+[node name="Run" parent="player/PlayerShape" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 2.3 )
 
 [node name="SpringArm" type="SpringArm" parent="player"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.55417, 0 )
@@ -161,6 +171,9 @@ mesh = SubResource( 15 )
 transform = Transform( -8.74228e-07, 0, -1, 0, 20, 0, 20, 0, -4.37114e-08, 393.71, 11.7177, 0.791428 )
 text = "The End!
 "
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 18 )
 
 [connection signal="body_entered" from="Start" to="Label" method="_on_Start_body_entered"]
 [connection signal="body_entered" from="Finish" to="Label" method="_on_Finish_body_entered"]
