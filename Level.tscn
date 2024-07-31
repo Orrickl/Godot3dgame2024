@@ -3,7 +3,6 @@
 [ext_resource path="res://timer.gd" type="Script" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
 [ext_resource path="res://CameraJoint.gd" type="Script" id=3]
-[ext_resource path="res://Run.fbx" type="PackedScene" id=4]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 1, 1.001, 1.001 )
@@ -21,6 +20,8 @@ size = Vector3( 30, 2, 30 )
 [sub_resource type="CapsuleShape" id=5]
 radius = 1.46669
 height = 2.21212
+
+[sub_resource type="CapsuleMesh" id=19]
 
 [sub_resource type="CapsuleShape" id=11]
 
@@ -77,7 +78,7 @@ mesh = SubResource( 4 )
 material/0 = SubResource( 16 )
 
 [node name="player" type="KinematicBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.52681, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 script = ExtResource( 2 )
 
 [node name="PlayerShape" type="CollisionShape" parent="player"]
@@ -85,25 +86,24 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.20971
 shape = SubResource( 5 )
 
 [node name="MeshInstance" type="MeshInstance" parent="player/PlayerShape"]
-transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.75, 0, 0, 0 )
+transform = Transform( 1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.75, 0, 0, 0 )
+mesh = SubResource( 19 )
 
-[node name="Run" parent="player/PlayerShape" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 2.3 )
+[node name="PlayerArea" type="Area" parent="player"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="player/PlayerArea"]
+shape = SubResource( 11 )
 
 [node name="SpringArm" type="SpringArm" parent="player"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.55417, 0 )
-spring_length = 12.0
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.182866, 3.71846, 0 )
+spring_length = 0.0
 margin = 0.2
 script = ExtResource( 3 )
 
 [node name="Camera" type="Camera" parent="player/SpringArm"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 far = 2222.0
-
-[node name="PlayerArea" type="Area" parent="player"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2.91037, 0 )
-
-[node name="CollisionShape" type="CollisionShape" parent="player/PlayerArea"]
-shape = SubResource( 11 )
 
 [node name="Label" type="Label" parent="."]
 margin_left = 1.0
