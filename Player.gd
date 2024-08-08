@@ -4,8 +4,8 @@ extends KinematicBody
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-export var speed := 18
-export var jump_strength := 20.0
+export var speed := 30
+export var jump_strength := 30.0
 export var gravity := 50.0
 
 var _velocity := Vector3.ZERO

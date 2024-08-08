@@ -8,6 +8,8 @@ func _process(delta):
 		time += delta
 		text = var2str(round(time*100)/100)
 		print("hi")
+	 #if(not timer_on):
+		
 
 func _on_Start_body_entered(_body):
 	timer_on = true
@@ -16,5 +18,4 @@ func _on_Start_body_entered(_body):
 
 func _on_Finish_body_entered(_body):
 	timer_on = false
-
 
