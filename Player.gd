@@ -9,7 +9,7 @@ export var jump_strength := 30.0
 export var speed := 30
 export var gravity := 50.0
 
-var playstate := 1
+var playstate := 0
 var _velocity := Vector3.ZERO
 var _snap_vector := Vector3.DOWN
 
@@ -56,3 +56,7 @@ func _on_Area_body_entered(body):
 
 func _on_Finish_body_shape_exited(body_rid, body, body_shape_index, local_shape_index):
 	playstate = 0
+
+
+func _on_Button_pressed():
+	playstate = 1

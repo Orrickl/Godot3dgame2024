@@ -1,12 +1,16 @@
 extends SpringArm
 
-export var mouse_sensitivity := 0.05
+export var mouse_sensitivity := 0
 
+var playing := false
 
 
 func _ready() -> void:
-	set_as_toplevel(true)
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	if(playing):
+		set_as_toplevel(true)
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		print("HI")
+	
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -17,7 +21,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		rotation_degrees.y -= event.relative.x * mouse_sensitivity
 		rotation_degrees.y = wrapf(rotation_degrees.y, 0.0, 360.0)
 
-
-
-
-
+func _on_Button_pressed():
+	playing = true
+	mouse_sensitivity = 0.05

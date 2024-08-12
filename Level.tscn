@@ -1,8 +1,12 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://timer.gd" type="Script" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
 [ext_resource path="res://CameraJoint.gd" type="Script" id=3]
+[ext_resource path="res://startscreen.gd" type="Script" id=4]
+[ext_resource path="res://start_button.gd" type="Script" id=5]
+
+[sub_resource type="QuadMesh" id=22]
 
 [sub_resource type="CapsuleShape" id=5]
 radius = 1.46669
@@ -54,60 +58,9 @@ ss_reflections_enabled = true
 
 [node name="Level" type="Spatial"]
 
-[node name="player" type="KinematicBody" parent="."]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 12.8113, 0 )
-script = ExtResource( 2 )
+[node name="2D" type="Node" parent="."]
 
-[node name="PlayerShape" type="CollisionShape" parent="player"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.186397, 2.87529, 0.416956 )
-shape = SubResource( 5 )
-
-[node name="MeshInstance" type="MeshInstance" parent="player/PlayerShape"]
-transform = Transform( -6.11959e-09, -0.14, 0, -0.14, 6.11959e-09, -1.5299e-08, 1.22392e-08, -5.34992e-16, -0.175, -2.49989, 6.00535, 23.25 )
-
-[node name="PlayerArea" type="Area" parent="player"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2, 0 )
-
-[node name="CollisionShape" type="CollisionShape" parent="player/PlayerArea"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.216282, 0.454979, -0.721115 )
-shape = SubResource( 20 )
-
-[node name="SpringArm" type="SpringArm" parent="player"]
-physics_interpolation_mode = 1
-transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0.167952, 4.75428, 0 )
-spring_length = 0.0
-margin = 0.2
-script = ExtResource( 3 )
-
-[node name="Camera" type="ClippedCamera" parent="player/SpringArm"]
-transform = Transform( 1, 0, 0, 0, 10, 0, 0, 0, 1, 0, 5, 0 )
-fov = 100.0
-far = 2222.0
-
-[node name="Start" type="Position3D" parent="player"]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.67415e-07, -6.23266, -8.40547 )
-
-[node name="start platform" type="StaticBody" parent="."]
-transform = Transform( 1.5, 0, 0, 0, 1, 0, 0, 0, 1, 14.555, -1, 0 )
-
-[node name="CollisionShape" type="CollisionShape" parent="start platform"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.64429, 0 )
-shape = SubResource( 3 )
-
-[node name="MeshInstance" type="MeshInstance" parent="start platform"]
-mesh = SubResource( 4 )
-material/0 = SubResource( 16 )
-
-[node name="start_line" type="StaticBody" parent="start platform"]
-transform = Transform( 0.133333, 0, 0, 0, 0.001, 0, 0, 0, 15, 1.67733, 1, 0 )
-
-[node name="start_line_collision" type="CollisionShape" parent="start platform/start_line"]
-shape = SubResource( 7 )
-
-[node name="start_line_mesh" type="MeshInstance" parent="start platform/start_line"]
-mesh = SubResource( 9 )
-
-[node name="timer" type="Label" parent="."]
+[node name="timer" type="Label" parent="2D"]
 margin_left = 431.0
 margin_top = 9.0
 margin_right = 499.0
@@ -116,152 +69,225 @@ custom_colors/font_color = Color( 0.909804, 0.313726, 0.313726, 1 )
 text = "\"00.00.00\""
 script = ExtResource( 1 )
 
-[node name="Start" type="Area" parent="."]
+[node name="MeshInstance2D" type="MeshInstance2D" parent="2D"]
+position = Vector2( 512, 300.5 )
+scale = Vector2( 1024, 597 )
+mesh = SubResource( 22 )
+script = ExtResource( 4 )
+
+[node name="Button" type="Button" parent="2D"]
+margin_left = 438.0
+margin_top = 434.0
+margin_right = 565.0
+margin_bottom = 496.0
+text = "Start"
+script = ExtResource( 5 )
+
+[node name="3D" type="Node" parent="."]
+
+[node name="player" type="KinematicBody" parent="3D"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 12.8113, 0 )
+script = ExtResource( 2 )
+
+[node name="PlayerShape" type="CollisionShape" parent="3D/player"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.186397, 2.87529, 0.416956 )
+shape = SubResource( 5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="3D/player/PlayerShape"]
+transform = Transform( -6.11959e-09, -0.14, 0, -0.14, 6.11959e-09, -1.5299e-08, 1.22392e-08, -5.34992e-16, -0.175, -2.49989, 6.00535, 23.25 )
+
+[node name="PlayerArea" type="Area" parent="3D/player"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="3D/player/PlayerArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.216282, 0.454979, -0.721115 )
+shape = SubResource( 20 )
+
+[node name="SpringArm" type="SpringArm" parent="3D/player"]
+physics_interpolation_mode = 1
+transform = Transform( 1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0.167952, 4.75428, 0 )
+spring_length = 0.0
+margin = 0.2
+script = ExtResource( 3 )
+
+[node name="Camera" type="ClippedCamera" parent="3D/player/SpringArm"]
+transform = Transform( 1, 0, 0, 0, 10, 0, 0, 0, 1, 0, 5, 0 )
+fov = 100.0
+far = 2222.0
+
+[node name="Start" type="Position3D" parent="3D/player"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.67415e-07, -6.23266, -8.40547 )
+
+[node name="start platform" type="StaticBody" parent="3D"]
+transform = Transform( 1.5, 0, 0, 0, 1, 0, 0, 0, 1, 14.555, -1, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="3D/start platform"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.64429, 0 )
+shape = SubResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="3D/start platform"]
+mesh = SubResource( 4 )
+material/0 = SubResource( 16 )
+
+[node name="start_line" type="StaticBody" parent="3D/start platform"]
+transform = Transform( 0.133333, 0, 0, 0, 0.001, 0, 0, 0, 15, 1.67733, 1, 0 )
+
+[node name="start_line_collision" type="CollisionShape" parent="3D/start platform/start_line"]
+shape = SubResource( 7 )
+
+[node name="start_line_mesh" type="MeshInstance" parent="3D/start platform/start_line"]
+mesh = SubResource( 9 )
+
+[node name="Start" type="Area" parent="3D"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.0752, 8.18452, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Start"]
+[node name="CollisionShape" type="CollisionShape" parent="3D/Start"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5058, 0.605266, 0 )
 shape = SubResource( 10 )
 
-[node name="Platforms" type="Spatial" parent="."]
+[node name="Platforms" type="Spatial" parent="3D"]
 
-[node name="plat1" type="StaticBody" parent="Platforms"]
+[node name="plat1" type="StaticBody" parent="3D/Platforms"]
 transform = Transform( 1.5, 0, 0, 0, 1, 0, 0, 0, 1, 81.1048, -1, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Platforms/plat1"]
+[node name="CollisionShape" type="CollisionShape" parent="3D/Platforms/plat1"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0973396, 2.64429, -0.0227585 )
 shape = SubResource( 3 )
 
-[node name="MeshInstance" type="MeshInstance" parent="Platforms/plat1"]
+[node name="MeshInstance" type="MeshInstance" parent="3D/Platforms/plat1"]
 mesh = SubResource( 4 )
 material/0 = SubResource( 16 )
 
-[node name="plat2" type="StaticBody" parent="Platforms"]
+[node name="plat2" type="StaticBody" parent="3D/Platforms"]
 transform = Transform( 1.5, 0, 0, 0, 1, 0, 0, 0, 1, 140.881, 6.73663, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Platforms/plat2"]
+[node name="CollisionShape" type="CollisionShape" parent="3D/Platforms/plat2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0973396, 2.64429, -0.0227585 )
 shape = SubResource( 3 )
 
-[node name="MeshInstance" type="MeshInstance" parent="Platforms/plat2"]
+[node name="MeshInstance" type="MeshInstance" parent="3D/Platforms/plat2"]
 mesh = SubResource( 4 )
 material/0 = SubResource( 16 )
 
-[node name="Spatial" type="Spatial" parent="Platforms"]
+[node name="Spatial" type="Spatial" parent="3D/Platforms"]
 
-[node name="plat3" type="StaticBody" parent="Platforms/Spatial"]
+[node name="plat3" type="StaticBody" parent="3D/Platforms/Spatial"]
 transform = Transform( 1.5, 0, 0, 0, 1, 0, 0, 0, 0.4, 197.415, 6.73663, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Platforms/Spatial/plat3"]
+[node name="CollisionShape" type="CollisionShape" parent="3D/Platforms/Spatial/plat3"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0973396, 2.64429, -0.0227585 )
 shape = SubResource( 3 )
 
-[node name="MeshInstance" type="MeshInstance" parent="Platforms/Spatial/plat3"]
+[node name="MeshInstance" type="MeshInstance" parent="3D/Platforms/Spatial/plat3"]
 mesh = SubResource( 4 )
 material/0 = SubResource( 16 )
 
-[node name="plat4" type="StaticBody" parent="Platforms/Spatial"]
+[node name="plat4" type="StaticBody" parent="3D/Platforms/Spatial"]
 transform = Transform( 10, 0, 0, 0, 2, 0, 0, 0, 6, 205, 19.9033, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Platforms/Spatial/plat4"]
+[node name="CollisionShape" type="CollisionShape" parent="3D/Platforms/Spatial/plat4"]
 transform = Transform( 1, 0, 0, 0, 4.5, 0, 0, 0, 1, 0, -1.59348, 0 )
 shape = SubResource( 13 )
 
-[node name="MeshInstance" type="MeshInstance" parent="Platforms/Spatial/plat4/CollisionShape"]
+[node name="MeshInstance" type="MeshInstance" parent="3D/Platforms/Spatial/plat4/CollisionShape"]
 mesh = SubResource( 15 )
 
-[node name="Spatial2" type="Spatial" parent="Platforms"]
+[node name="Spatial2" type="Spatial" parent="3D/Platforms"]
 transform = Transform( -1, 8.74228e-08, 0, 8.74228e-08, 1, 8.74228e-08, 7.64274e-15, 8.74228e-08, -1, 455, 0, 0 )
 
-[node name="plat3" type="StaticBody" parent="Platforms/Spatial2"]
+[node name="plat3" type="StaticBody" parent="3D/Platforms/Spatial2"]
 transform = Transform( 1.5, 0, 0, 0, 1, 0, 0, 0, 0.4, 197.415, 6.73663, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Platforms/Spatial2/plat3"]
+[node name="CollisionShape" type="CollisionShape" parent="3D/Platforms/Spatial2/plat3"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0973396, 2.64429, -0.0227585 )
 shape = SubResource( 3 )
 
-[node name="MeshInstance" type="MeshInstance" parent="Platforms/Spatial2/plat3"]
+[node name="MeshInstance" type="MeshInstance" parent="3D/Platforms/Spatial2/plat3"]
 mesh = SubResource( 4 )
 material/0 = SubResource( 16 )
 
-[node name="plat4" type="StaticBody" parent="Platforms/Spatial2"]
+[node name="plat4" type="StaticBody" parent="3D/Platforms/Spatial2"]
 transform = Transform( 10, 0, 0, 0, 2, 0, 0, 0, 6, 205, 19.9033, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Platforms/Spatial2/plat4"]
+[node name="CollisionShape" type="CollisionShape" parent="3D/Platforms/Spatial2/plat4"]
 transform = Transform( 1, 0, 0, 0, 4.5, 0, 0, 0, 1, 0, -1.59348, 0 )
 shape = SubResource( 13 )
 
-[node name="MeshInstance" type="MeshInstance" parent="Platforms/Spatial2/plat4/CollisionShape"]
+[node name="MeshInstance" type="MeshInstance" parent="3D/Platforms/Spatial2/plat4/CollisionShape"]
 mesh = SubResource( 15 )
 
-[node name="Fin" type="Spatial" parent="."]
+[node name="Fin" type="Spatial" parent="3D"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -82, 0, 0 )
 
-[node name="Finish" type="Area" parent="Fin"]
+[node name="Finish" type="Area" parent="3D/Fin"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 393.698, 9.44165, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Fin/Finish"]
+[node name="CollisionShape" type="CollisionShape" parent="3D/Fin/Finish"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015686, 0.405303, 0 )
 shape = SubResource( 12 )
 
-[node name="RigidBody" type="StaticBody" parent="Fin"]
+[node name="RigidBody" type="StaticBody" parent="3D/Fin"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 394, 14.4531, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Fin/RigidBody"]
+[node name="CollisionShape" type="CollisionShape" parent="3D/Fin/RigidBody"]
 transform = Transform( 1, 0, 0, 0, 0.3, 0, 0, 0, 15, 0, -0.489947, 0 )
 shape = SubResource( 13 )
 
-[node name="MeshInstance" type="MeshInstance" parent="Fin/RigidBody/CollisionShape"]
+[node name="MeshInstance" type="MeshInstance" parent="3D/Fin/RigidBody/CollisionShape"]
 mesh = SubResource( 14 )
 
-[node name="RigidBody2" type="StaticBody" parent="Fin"]
+[node name="RigidBody2" type="StaticBody" parent="3D/Fin"]
 transform = Transform( 1, 0, 0, 0, 1.5, 0, 0, 0, 1, 394, 9.37612, 13.995 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Fin/RigidBody2"]
+[node name="CollisionShape" type="CollisionShape" parent="3D/Fin/RigidBody2"]
 transform = Transform( 1, 0, 0, 0, 4.5, 0, 0, 0, 1, 0, -1.59348, 0 )
 shape = SubResource( 13 )
 
-[node name="MeshInstance" type="MeshInstance" parent="Fin/RigidBody2/CollisionShape"]
+[node name="MeshInstance" type="MeshInstance" parent="3D/Fin/RigidBody2/CollisionShape"]
 mesh = SubResource( 15 )
 
-[node name="RigidBody3" type="StaticBody" parent="Fin"]
+[node name="RigidBody3" type="StaticBody" parent="3D/Fin"]
 transform = Transform( 1, 0, 0, 0, 1.5, 0, 0, 0, 1, 394.003, 9.26554, -13.9938 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Fin/RigidBody3"]
+[node name="CollisionShape" type="CollisionShape" parent="3D/Fin/RigidBody3"]
 transform = Transform( 1, 0, 0, 0, 4.5, 0, 0, 0, 1, 0, -1.59348, 0 )
 shape = SubResource( 13 )
 
-[node name="MeshInstance" type="MeshInstance" parent="Fin/RigidBody3/CollisionShape"]
+[node name="MeshInstance" type="MeshInstance" parent="3D/Fin/RigidBody3/CollisionShape"]
 mesh = SubResource( 15 )
 
-[node name="Label3D" type="Label3D" parent="Fin"]
+[node name="Label3D" type="Label3D" parent="3D/Fin"]
 transform = Transform( -8.74228e-07, 0, -1, 0, 20, 0, 20, 0, -4.37114e-08, 393.71, 14.5898, 0.163886 )
 text = "The End!
 "
 
-[node name="plat1" type="StaticBody" parent="Fin"]
+[node name="plat1" type="StaticBody" parent="3D/Fin"]
 transform = Transform( 1.5, 0, 0, 0, 1, 0, 0, 0, 1, 400.503, -0.794849, -0.0203581 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Fin/plat1"]
+[node name="CollisionShape" type="CollisionShape" parent="3D/Fin/plat1"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0973396, 2.64429, -0.0227585 )
 shape = SubResource( 3 )
 
-[node name="MeshInstance" type="MeshInstance" parent="Fin/plat1"]
+[node name="MeshInstance" type="MeshInstance" parent="3D/Fin/plat1"]
 mesh = SubResource( 4 )
 material/0 = SubResource( 16 )
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="3D"]
 environment = SubResource( 18 )
 
-[node name="Killbox" type="Area" parent="."]
+[node name="Killbox" type="Area" parent="3D"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -28.0305, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Killbox"]
+[node name="CollisionShape" type="CollisionShape" parent="3D/Killbox"]
 transform = Transform( 400, 0, 0, 0, 1, 0, 0, 0, 100, 201.22, -0.41362, -5.4954 )
 shape = SubResource( 21 )
 
-[connection signal="body_entered" from="Start" to="timer" method="_on_Start_body_entered"]
-[connection signal="body_entered" from="Fin/Finish" to="timer" method="_on_Finish_body_entered"]
-[connection signal="body_shape_exited" from="Fin/Finish" to="player" method="_on_Finish_body_shape_exited"]
-[connection signal="body_entered" from="Killbox" to="player" method="_on_Area_body_entered"]
-[connection signal="body_entered" from="Killbox" to="timer" method="_on_Area_body_entered"]
+[connection signal="pressed" from="2D/Button" to="3D/player" method="_on_Button_pressed"]
+[connection signal="pressed" from="2D/Button" to="3D/player/SpringArm" method="_on_Button_pressed"]
+[connection signal="pressed" from="2D/Button" to="2D/MeshInstance2D" method="_on_Button_pressed"]
+[connection signal="pressed" from="2D/Button" to="2D/Button" method="_on_Button_pressed"]
+[connection signal="body_entered" from="3D/Start" to="2D/timer" method="_on_Start_body_entered"]
+[connection signal="body_entered" from="3D/Fin/Finish" to="2D/timer" method="_on_Finish_body_entered"]
+[connection signal="body_shape_exited" from="3D/Fin/Finish" to="3D/player" method="_on_Finish_body_shape_exited"]
+[connection signal="body_entered" from="3D/Killbox" to="3D/player" method="_on_Area_body_entered"]
+[connection signal="body_entered" from="3D/Killbox" to="2D/timer" method="_on_Area_body_entered"]
