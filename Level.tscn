@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://timer.gd" type="Script" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://startscreen.gd" type="Script" id=4]
 [ext_resource path="res://start_button.gd" type="Script" id=5]
 [ext_resource path="res://unnamed.png" type="Texture" id=6]
+[ext_resource path="res://endscreen.gd" type="Script" id=7]
 
 [sub_resource type="QuadMesh" id=22]
 
@@ -61,16 +62,23 @@ ss_reflections_enabled = true
 
 [node name="2D" type="Node" parent="."]
 
-[node name="timer" type="Label" parent="2D"]
+[node name="end_menu" type="MeshInstance2D" parent="2D"]
+position = Vector2( 507, 297 )
+scale = Vector2( 499.75, -299.375 )
+mesh = SubResource( 22 )
+texture = ExtResource( 6 )
+script = ExtResource( 7 )
+
+[node name="timer_lable" type="Label" parent="2D"]
 margin_left = 431.0
 margin_top = 9.0
 margin_right = 499.0
 margin_bottom = 23.0
 custom_colors/font_color = Color( 0.909804, 0.313726, 0.313726, 1 )
-text = "\"00.00.00\""
+text = "\"0.1\""
 script = ExtResource( 1 )
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="2D"]
+[node name="start_menu" type="MeshInstance2D" parent="2D"]
 position = Vector2( 513.5, 301.5 )
 scale = Vector2( 1043, -617 )
 mesh = SubResource( 22 )
@@ -117,8 +125,11 @@ transform = Transform( 1, 0, 0, 0, 10, 0, 0, 0, 1, 0, 5, 0 )
 fov = 100.0
 far = 2222.0
 
+[node name="die_start" type="Position3D" parent="3D/player"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.155265, -5.73229, -17.1772 )
+
 [node name="Start" type="Position3D" parent="3D/player"]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.67415e-07, -6.23266, -8.40547 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.7069e-07, -4.76438, -6.19265 )
 
 [node name="start platform" type="StaticBody" parent="3D"]
 transform = Transform( 1.5, 0, 0, 0, 1, 0, 0, 0, 1, 14.555, -1, 0 )
@@ -140,10 +151,10 @@ shape = SubResource( 7 )
 [node name="start_line_mesh" type="MeshInstance" parent="3D/start platform/start_line"]
 mesh = SubResource( 9 )
 
-[node name="Start" type="Area" parent="3D"]
+[node name="Start_area" type="Area" parent="3D"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.0752, 8.18452, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="3D/Start"]
+[node name="CollisionShape" type="CollisionShape" parent="3D/Start_area"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5058, 0.605266, 0 )
 shape = SubResource( 10 )
 
@@ -284,12 +295,15 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -28.0305, 0 )
 transform = Transform( 400, 0, 0, 0, 1, 0, 0, 0, 100, 201.22, -0.41362, -5.4954 )
 shape = SubResource( 21 )
 
-[connection signal="pressed" from="2D/Button" to="2D/MeshInstance2D" method="_on_Button_pressed"]
+[connection signal="pressed" from="2D/Button" to="2D/start_menu" method="_on_Button_pressed"]
 [connection signal="pressed" from="2D/Button" to="2D/Button" method="_on_Button_pressed"]
 [connection signal="pressed" from="2D/Button" to="3D/player" method="_on_Button_pressed"]
 [connection signal="pressed" from="2D/Button" to="3D/player/SpringArm" method="_on_Button_pressed"]
-[connection signal="body_entered" from="3D/Start" to="2D/timer" method="_on_Start_body_entered"]
-[connection signal="body_entered" from="3D/Fin/Finish" to="2D/timer" method="_on_Finish_body_entered"]
-[connection signal="body_shape_exited" from="3D/Fin/Finish" to="3D/player" method="_on_Finish_body_shape_exited"]
-[connection signal="body_entered" from="3D/Killbox" to="2D/timer" method="_on_Area_body_entered"]
+[connection signal="pressed" from="2D/Button" to="2D/end_menu" method="_on_Button_pressed"]
+[connection signal="body_entered" from="3D/Start_area" to="2D/timer_lable" method="_on_Start_body_entered"]
+[connection signal="body_entered" from="3D/Fin/Finish" to="2D/timer_lable" method="_on_Finish_body_entered"]
+[connection signal="body_entered" from="3D/Fin/Finish" to="3D/player" method="_on_Finish_body_entered"]
+[connection signal="body_entered" from="3D/Fin/Finish" to="3D/player/SpringArm" method="_on_Finish_body_entered"]
+[connection signal="body_entered" from="3D/Fin/Finish" to="2D/end_menu" method="_on_Finish_body_entered"]
+[connection signal="body_entered" from="3D/Killbox" to="2D/timer_lable" method="_on_Area_body_entered"]
 [connection signal="body_entered" from="3D/Killbox" to="3D/player" method="_on_Area_body_entered"]
