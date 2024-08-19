@@ -21,4 +21,8 @@ func _on_Button_pressed():
 func _on_Finish_body_entered(body):
 	mouse_sensitivity = 0
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+
+func _on_reset_button_pressed():
+	mouse_sensitivity = 0.15
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

@@ -8,5 +8,10 @@ func _on_Finish_body_entered(_body):
 func _on_Button_pressed():
 	visible = false
 
+
 func _on_timer_lable_time(value):
 	text = var2str(value)
+
+
+func _on_reset_button_pressed():
+	visible = false

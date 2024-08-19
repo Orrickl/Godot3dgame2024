@@ -58,6 +58,7 @@ func _on_Area_body_entered(body):
 
 func _on_Button_pressed():
 	playstate = 1
+	global_translation = _starting_position
 
 func _on_Finish_body_entered(body):
 	playstate = 0

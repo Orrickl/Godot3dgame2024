@@ -9,3 +9,5 @@ func _on_Button_pressed():
 	visible = false
 
 
+func _on_reset_button_pressed():
+	visible = false

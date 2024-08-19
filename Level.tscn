@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://timer.gd" type="Script" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
@@ -9,8 +9,13 @@
 [ext_resource path="res://endscreen.gd" type="Script" id=7]
 [ext_resource path="res://end_menu.gd" type="Script" id=8]
 [ext_resource path="res://Label_end.gd" type="Script" id=9]
+[ext_resource path="res://high_score_lable_script.gd" type="Script" id=10]
+[ext_resource path="res://leaderboard_back_button_script.gd" type="Script" id=11]
+[ext_resource path="res://leaderboard_menu_script.gd" type="Script" id=12]
 
 [sub_resource type="QuadMesh" id=22]
+
+[sub_resource type="QuadMesh" id=23]
 
 [sub_resource type="CapsuleShape" id=5]
 radius = 1.46669
@@ -112,6 +117,30 @@ margin_bottom = 23.0
 custom_colors/font_color = Color( 0.909804, 0.313726, 0.313726, 1 )
 text = "\"0.1\""
 script = ExtResource( 1 )
+
+[node name="leaderboard_menu" type="MeshInstance2D" parent="2D"]
+position = Vector2( 508.5, 297.5 )
+scale = Vector2( 499, -297 )
+mesh = SubResource( 23 )
+texture = ExtResource( 6 )
+script = ExtResource( 12 )
+
+[node name="leaderboard_back_button" type="Button" parent="2D"]
+margin_left = 681.0
+margin_top = 166.0
+margin_right = 739.0
+margin_bottom = 224.0
+text = "back"
+script = ExtResource( 11 )
+
+[node name="high_score_lable" type="Label" parent="2D"]
+margin_left = 474.0
+margin_top = 179.0
+margin_right = 559.0
+margin_bottom = 210.0
+text = "player scores
+"
+script = ExtResource( 10 )
 
 [node name="start_menu" type="MeshInstance2D" parent="2D"]
 position = Vector2( 513.5, 301.5 )
@@ -330,26 +359,44 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -28.0305, 0 )
 transform = Transform( 400, 0, 0, 0, 1, 0, 0, 0, 100, 201.22, -0.41362, -5.4954 )
 shape = SubResource( 21 )
 
+[connection signal="pressed" from="2D/save_time_button" to="2D/leaderboard_menu" method="_on_save_time_button_pressed"]
+[connection signal="pressed" from="2D/save_time_button" to="2D/leaderboard_back_button" method="_on_save_time_button_pressed"]
+[connection signal="pressed" from="2D/save_time_button" to="2D/high_score_lable" method="_on_save_time_button_pressed"]
+[connection signal="pressed" from="2D/reset_button" to="2D/end_menu" method="_on_reset_button_pressed"]
+[connection signal="pressed" from="2D/reset_button" to="2D/save_time_button" method="_on_reset_button_pressed"]
+[connection signal="pressed" from="2D/reset_button" to="2D/Label" method="_on_reset_button_pressed"]
+[connection signal="pressed" from="2D/reset_button" to="2D/reset_button" method="_on_reset_button_pressed"]
+[connection signal="pressed" from="2D/reset_button" to="2D/exit_button" method="_on_reset_button_pressed"]
+[connection signal="pressed" from="2D/reset_button" to="2D/timer_lable" method="_on_reset_button_pressed"]
 [connection signal="pressed" from="2D/reset_button" to="3D/player" method="_on_reset_button_pressed"]
+[connection signal="pressed" from="2D/reset_button" to="3D/player/SpringArm" method="_on_reset_button_pressed"]
+[connection signal="pressed" from="2D/exit_button" to="2D/start_menu" method="_on_exit_button_pressed"]
+[connection signal="pressed" from="2D/exit_button" to="2D/Button" method="_on_exit_button_pressed"]
 [connection signal="time" from="2D/timer_lable" to="2D/Label" method="_on_timer_lable_time"]
+[connection signal="pressed" from="2D/leaderboard_back_button" to="2D/leaderboard_menu" method="_on_leaderboard_back_button_pressed"]
+[connection signal="pressed" from="2D/leaderboard_back_button" to="2D/leaderboard_back_button" method="_on_leaderboard_back_button_pressed"]
+[connection signal="pressed" from="2D/leaderboard_back_button" to="2D/high_score_lable" method="_on_leaderboard_back_button_pressed"]
 [connection signal="pressed" from="2D/Button" to="2D/end_menu" method="_on_Button_pressed"]
+[connection signal="pressed" from="2D/Button" to="2D/save_time_button" method="_on_Button_pressed"]
+[connection signal="pressed" from="2D/Button" to="2D/Label" method="_on_Button_pressed"]
+[connection signal="pressed" from="2D/Button" to="2D/reset_button" method="_on_Button_pressed"]
+[connection signal="pressed" from="2D/Button" to="2D/exit_button" method="_on_Button_pressed"]
 [connection signal="pressed" from="2D/Button" to="2D/start_menu" method="_on_Button_pressed"]
 [connection signal="pressed" from="2D/Button" to="2D/Button" method="_on_Button_pressed"]
 [connection signal="pressed" from="2D/Button" to="3D/player" method="_on_Button_pressed"]
 [connection signal="pressed" from="2D/Button" to="3D/player/SpringArm" method="_on_Button_pressed"]
-[connection signal="pressed" from="2D/Button" to="2D/reset_button" method="_on_Button_pressed"]
-[connection signal="pressed" from="2D/Button" to="2D/exit_button" method="_on_Button_pressed"]
-[connection signal="pressed" from="2D/Button" to="2D/save_time_button" method="_on_Button_pressed"]
-[connection signal="pressed" from="2D/Button" to="2D/Label" method="_on_Button_pressed"]
-[connection signal="body_entered" from="3D/Start_area" to="2D/timer_lable" method="_on_Start_body_entered"]
+[connection signal="pressed" from="2D/Button" to="2D/leaderboard_menu" method="_on_Button_pressed"]
+[connection signal="pressed" from="2D/Button" to="2D/leaderboard_back_button" method="_on_Button_pressed"]
+[connection signal="pressed" from="2D/Button" to="2D/high_score_lable" method="_on_Button_pressed"]
 [connection signal="body_entered" from="3D/Start_area" to="2D/Label" method="_on_Start_area_body_entered"]
+[connection signal="body_entered" from="3D/Start_area" to="2D/timer_lable" method="_on_Start_body_entered"]
 [connection signal="body_entered" from="3D/Fin/Finish" to="2D/end_menu" method="_on_Finish_body_entered"]
+[connection signal="body_entered" from="3D/Fin/Finish" to="2D/save_time_button" method="_on_Finish_body_entered"]
+[connection signal="body_entered" from="3D/Fin/Finish" to="2D/Label" method="_on_Finish_body_entered"]
+[connection signal="body_entered" from="3D/Fin/Finish" to="2D/reset_button" method="_on_Finish_body_entered"]
+[connection signal="body_entered" from="3D/Fin/Finish" to="2D/exit_button" method="_on_Finish_body_entered"]
 [connection signal="body_entered" from="3D/Fin/Finish" to="2D/timer_lable" method="_on_Finish_body_entered"]
 [connection signal="body_entered" from="3D/Fin/Finish" to="3D/player" method="_on_Finish_body_entered"]
 [connection signal="body_entered" from="3D/Fin/Finish" to="3D/player/SpringArm" method="_on_Finish_body_entered"]
-[connection signal="body_entered" from="3D/Fin/Finish" to="2D/reset_button" method="_on_Finish_body_entered"]
-[connection signal="body_entered" from="3D/Fin/Finish" to="2D/exit_button" method="_on_Finish_body_entered"]
-[connection signal="body_entered" from="3D/Fin/Finish" to="2D/save_time_button" method="_on_Finish_body_entered"]
-[connection signal="body_entered" from="3D/Fin/Finish" to="2D/Label" method="_on_Finish_body_entered"]
 [connection signal="body_entered" from="3D/Killbox" to="2D/timer_lable" method="_on_Area_body_entered"]
 [connection signal="body_entered" from="3D/Killbox" to="3D/player" method="_on_Area_body_entered"]

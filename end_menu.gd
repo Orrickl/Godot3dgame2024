@@ -11,4 +11,7 @@ func _on_Finish_body_entered(_body):
 
 func _on_Button_pressed():
 	visible = false
-	disabled = true
+
+
+func _on_reset_button_pressed():
+	visible = false

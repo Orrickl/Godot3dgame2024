@@ -22,3 +22,7 @@ func _on_Start_body_entered(_body):
 func _on_Finish_body_entered(_body):
 	timer_on = false
 	emit_signal("time",time)
+
+
+func _on_reset_button_pressed():
+	time = 0
