@@ -13,6 +13,8 @@ func _process(delta):
 		time = 0
 	time = round(time*100)/100
 	text = var2str(time)
+	if (Input.get_action_strength("escape")!=0):
+		visible = false
 
 
 func _on_Start_body_entered(_body):
@@ -25,4 +27,8 @@ func _on_Finish_body_entered(_body):
 
 
 func _on_reset_button_pressed():
+	time = 0
+
+
+func _on_Button_pressed():
 	time = 0
