@@ -4,6 +4,8 @@ signal time(value)
 var time = 0
 var timer_on = false
 
+const Save_file = "User://high_scores_file.tres"
+
 
 func _process(delta):
 	if(timer_on):
@@ -15,6 +17,11 @@ func _process(delta):
 	text = var2str(time)
 	if (Input.get_action_strength("escape")!=0):
 		visible = false
+	
+	var file = File.new()
+	file.open(Save_file, File.WRITE)
+	file.store_var(time)
+	file.close()
 
 
 func _on_Start_body_entered(_body):

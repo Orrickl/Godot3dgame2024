@@ -1,6 +1,6 @@
 [gd_scene load_steps=33 format=2]
 
-[ext_resource path="res://timer.gd" type="Script" id=1]
+[ext_resource path="res://save_time.gd" type="Script" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
 [ext_resource path="res://CameraJoint.gd" type="Script" id=3]
 [ext_resource path="res://startscreen.gd" type="Script" id=4]
@@ -395,7 +395,6 @@ shape = SubResource( 21 )
 [connection signal="pressed" from="2D/save_time_button" to="2D/leaderboard_menu" method="_on_save_time_button_pressed"]
 [connection signal="pressed" from="2D/save_time_button" to="2D/leaderboard_back_button" method="_on_save_time_button_pressed"]
 [connection signal="pressed" from="2D/save_time_button" to="2D/high_score_lable" method="_on_save_time_button_pressed"]
-[connection signal="time" from="2D/timer_lable" to="2D/Label" method="_on_timer_lable_time"]
 [connection signal="pressed" from="2D/leaderboard_back_button" to="2D/leaderboard_menu" method="_on_leaderboard_back_button_pressed"]
 [connection signal="pressed" from="2D/leaderboard_back_button" to="2D/leaderboard_back_button" method="_on_leaderboard_back_button_pressed"]
 [connection signal="pressed" from="2D/leaderboard_back_button" to="2D/high_score_lable" method="_on_leaderboard_back_button_pressed"]
