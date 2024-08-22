@@ -1,18 +1,21 @@
 extends Button
 
-
-var menu_open = false
+var escape = false
 
 func _input(event):
-	if (menu_open == true):
-		visible = false
-		menu_open = false
-	elif (menu_open == false):
-		visible = true
-		menu_open = true
+	if (Input.get_action_strength("escape")!=0):
+		escape = true
+	if (Input.get_action_strength("escape") == 0) and (escape == true):
+		if (visible == true):
+			visible = false
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		elif (visible == false):
+			visible = true
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		escape = false
+	emit_signal("escape", escape)
 
-func _ready():
-	pass
+
 
 
 func _on_Finish_body_entered(_body):

@@ -1,17 +1,19 @@
 extends MeshInstance2D
 
-
-var menu_open = false
-
+var pressed = false
 
 func _input(event):
-	#add second if
-	if (menu_open == true):
-		visible = false
-		menu_open = false
-	elif (menu_open == false):
-		visible = true
-		menu_open = true
+	if (Input.get_action_strength("escape")!=0) and (pressed == false):
+		pressed = true
+	if (Input.get_action_strength("escape") == 0) and (pressed == true):
+		if (visible == true):
+			visible = false
+			
+		elif (visible == false):
+			visible = true
+			
+		pressed = false
+		
 
 
 func _on_Finish_body_entered(_body):
