@@ -1,8 +1,9 @@
 extends MeshInstance2D
 
 var pressed = false
+signal pressed(value)
 
-func _input(event):
+func _input(_event):
 	if (Input.get_action_strength("escape")!=0) and (pressed == false):
 		pressed = true
 	if (Input.get_action_strength("escape") == 0) and (pressed == true):
@@ -13,7 +14,7 @@ func _input(event):
 			visible = true
 			
 		pressed = false
-		
+		emit_signal("pressed", pressed)
 
 
 func _on_Finish_body_entered(_body):

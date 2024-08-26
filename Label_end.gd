@@ -3,7 +3,7 @@ extends Label
 var time
 var pressed = false
 
-func _input(event):
+func _input(_event):
 	if (Input.get_action_strength("escape")!=0):
 		pressed = true
 	if (Input.get_action_strength("escape") == 0) and (pressed == true):

@@ -3,6 +3,7 @@ extends SpringArm
 export var mouse_sensitivity := 0.0
 var escape = false
 
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		
@@ -11,7 +12,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			
 			rotation_degrees.y -= event.relative.x * mouse_sensitivity
 			rotation_degrees.y = wrapf(rotation_degrees.y, 0.0, 360.0)
-		
+
 
 func _on_Button_pressed():
 	set_as_toplevel(true)
@@ -19,7 +20,7 @@ func _on_Button_pressed():
 	mouse_sensitivity = 0.15
 
 
-func _on_Finish_body_entered(body):
+func _on_Finish_body_entered(_body):
 	mouse_sensitivity = 0
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
@@ -29,14 +30,8 @@ func _on_reset_button_pressed():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
-func _input(_event):
-	if (Input.get_action_strength("escape")!=0):
-		escape = true
-	elif (Input.get_action_strength("escape") == 0) and (escape == true):
-		if (visible == true):
-			visible = false
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		elif (visible == false):
-			visible = true
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		escape = false
+func _on_end_menu_mesh_pressed(_value):
+	if (mouse_sensitivity == 0.15):
+		mouse_sensitivity = 0
+	elif (mouse_sensitivity == 0):
+		mouse_sensitivity = 0.15

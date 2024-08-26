@@ -52,7 +52,7 @@ func _physics_process(delta: float) -> void:
 func _process(_delta: float) -> void:
 	_spring_arm.translation = translation
 
-func _on_Area_body_entered(body):
+func _on_Area_body_entered(_body):
 	global_translation = _die_position
 
 
@@ -60,9 +60,16 @@ func _on_Button_pressed():
 	playstate = 1
 	global_translation = _starting_position
 
-func _on_Finish_body_entered(body):
+func _on_Finish_body_entered(_body):
 	playstate = 0
 
 func _on_reset_button_pressed():
 	playstate = 1
 	global_translation = _starting_position
+
+
+func _on_end_menu_mesh_pressed(_value):
+	if (playstate == 0):
+		playstate = 1
+	elif (playstate == 1):
+		playstate = 0

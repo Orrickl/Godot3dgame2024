@@ -56,6 +56,8 @@ extents = Vector3( 0.861979, 2.8069, 14.8677 )
 
 [sub_resource type="PrismMesh" id=14]
 
+[sub_resource type="BoxShape" id=21]
+
 [sub_resource type="ProceduralSky" id=17]
 
 [sub_resource type="Environment" id=18]
@@ -64,8 +66,6 @@ background_sky = SubResource( 17 )
 tonemap_mode = 2
 auto_exposure_enabled = true
 ss_reflections_enabled = true
-
-[sub_resource type="BoxShape" id=21]
 
 [node name="Level" type="Spatial"]
 
@@ -148,6 +148,14 @@ text = "player scores
 "
 script = ExtResource( 10 )
 
+[node name="TextEdit" type="TextEdit" parent="2D/Leaderboard_menu"]
+visible = false
+margin_left = 457.0
+margin_top = 220.0
+margin_right = 576.0
+margin_bottom = 245.0
+text = "Enter name here"
+
 [node name="Start_menu" type="Node" parent="2D"]
 
 [node name="start_menu" type="MeshInstance2D" parent="2D/Start_menu"]
@@ -221,196 +229,365 @@ transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.15526
 [node name="Start" type="Position3D" parent="3D/player"]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.7069e-07, -4.76438, -6.19265 )
 
-[node name="start platform" type="StaticBody" parent="3D"]
+[node name="world" type="Node" parent="3D"]
+
+[node name="Level_one" type="Spatial" parent="3D/world"]
+
+[node name="start_platform_one" type="StaticBody" parent="3D/world/Level_one"]
 transform = Transform( 1.5, 0, 0, 0, 1, 0, 0, 0, 1, 14.555, -1, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="3D/start platform"]
+[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/start_platform_one"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.64429, 0 )
 shape = SubResource( 3 )
 
-[node name="MeshInstance" type="MeshInstance" parent="3D/start platform"]
+[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/start_platform_one"]
 mesh = SubResource( 4 )
 material/0 = SubResource( 16 )
 
-[node name="start_line" type="StaticBody" parent="3D/start platform"]
+[node name="start_line" type="StaticBody" parent="3D/world/Level_one/start_platform_one"]
 transform = Transform( 0.133333, 0, 0, 0, 0.001, 0, 0, 0, 15, 1.67733, 1, 0 )
 
-[node name="start_line_collision" type="CollisionShape" parent="3D/start platform/start_line"]
+[node name="start_line_collision" type="CollisionShape" parent="3D/world/Level_one/start_platform_one/start_line"]
 shape = SubResource( 7 )
 
-[node name="start_line_mesh" type="MeshInstance" parent="3D/start platform/start_line"]
+[node name="start_line_mesh" type="MeshInstance" parent="3D/world/Level_one/start_platform_one/start_line"]
 mesh = SubResource( 9 )
 
-[node name="Start_area" type="Area" parent="3D"]
+[node name="start_area_one" type="Area" parent="3D/world/Level_one"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.0752, 8.18452, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="3D/Start_area"]
+[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/start_area_one"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5058, 0.605266, 0 )
 shape = SubResource( 10 )
 
-[node name="Platforms" type="Spatial" parent="3D"]
+[node name="Platforms_one" type="Spatial" parent="3D/world/Level_one"]
 
-[node name="plat1" type="StaticBody" parent="3D/Platforms"]
+[node name="plat1" type="StaticBody" parent="3D/world/Level_one/Platforms_one"]
 transform = Transform( 1.5, 0, 0, 0, 1, 0, 0, 0, 1, 81.1048, -1, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="3D/Platforms/plat1"]
+[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Platforms_one/plat1"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0973396, 2.64429, -0.0227585 )
 shape = SubResource( 3 )
 
-[node name="MeshInstance" type="MeshInstance" parent="3D/Platforms/plat1"]
+[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Platforms_one/plat1"]
 mesh = SubResource( 4 )
 material/0 = SubResource( 16 )
 
-[node name="plat2" type="StaticBody" parent="3D/Platforms"]
+[node name="plat2" type="StaticBody" parent="3D/world/Level_one/Platforms_one"]
 transform = Transform( 1.5, 0, 0, 0, 1, 0, 0, 0, 1, 140.881, 6.73663, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="3D/Platforms/plat2"]
+[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Platforms_one/plat2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0973396, 2.64429, -0.0227585 )
 shape = SubResource( 3 )
 
-[node name="MeshInstance" type="MeshInstance" parent="3D/Platforms/plat2"]
+[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Platforms_one/plat2"]
 mesh = SubResource( 4 )
 material/0 = SubResource( 16 )
 
-[node name="Spatial" type="Spatial" parent="3D/Platforms"]
+[node name="Spatial" type="Spatial" parent="3D/world/Level_one/Platforms_one"]
 
-[node name="plat3" type="StaticBody" parent="3D/Platforms/Spatial"]
+[node name="plat3" type="StaticBody" parent="3D/world/Level_one/Platforms_one/Spatial"]
 transform = Transform( 1.5, 0, 0, 0, 1, 0, 0, 0, 0.4, 197.415, 6.73663, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="3D/Platforms/Spatial/plat3"]
+[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Platforms_one/Spatial/plat3"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0973396, 2.64429, -0.0227585 )
 shape = SubResource( 3 )
 
-[node name="MeshInstance" type="MeshInstance" parent="3D/Platforms/Spatial/plat3"]
+[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Platforms_one/Spatial/plat3"]
 mesh = SubResource( 4 )
 material/0 = SubResource( 16 )
 
-[node name="plat4" type="StaticBody" parent="3D/Platforms/Spatial"]
+[node name="plat4" type="StaticBody" parent="3D/world/Level_one/Platforms_one/Spatial"]
 transform = Transform( 10, 0, 0, 0, 2, 0, 0, 0, 6, 205, 19.9033, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="3D/Platforms/Spatial/plat4"]
+[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Platforms_one/Spatial/plat4"]
 transform = Transform( 1, 0, 0, 0, 4.5, 0, 0, 0, 1, 0, -1.59348, 0 )
 shape = SubResource( 13 )
 
-[node name="MeshInstance" type="MeshInstance" parent="3D/Platforms/Spatial/plat4/CollisionShape"]
+[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Platforms_one/Spatial/plat4/CollisionShape"]
 mesh = SubResource( 15 )
 
-[node name="Spatial2" type="Spatial" parent="3D/Platforms"]
+[node name="Spatial2" type="Spatial" parent="3D/world/Level_one/Platforms_one"]
 transform = Transform( -1, 8.74228e-08, 0, 8.74228e-08, 1, 8.74228e-08, 7.64274e-15, 8.74228e-08, -1, 455, 0, 0 )
 
-[node name="plat3" type="StaticBody" parent="3D/Platforms/Spatial2"]
+[node name="plat3" type="StaticBody" parent="3D/world/Level_one/Platforms_one/Spatial2"]
 transform = Transform( 1.5, 0, 0, 0, 1, 0, 0, 0, 0.4, 197.415, 6.73663, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="3D/Platforms/Spatial2/plat3"]
+[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Platforms_one/Spatial2/plat3"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0973396, 2.64429, -0.0227585 )
 shape = SubResource( 3 )
 
-[node name="MeshInstance" type="MeshInstance" parent="3D/Platforms/Spatial2/plat3"]
+[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Platforms_one/Spatial2/plat3"]
 mesh = SubResource( 4 )
 material/0 = SubResource( 16 )
 
-[node name="plat4" type="StaticBody" parent="3D/Platforms/Spatial2"]
+[node name="plat4" type="StaticBody" parent="3D/world/Level_one/Platforms_one/Spatial2"]
 transform = Transform( 10, 0, 0, 0, 2, 0, 0, 0, 6, 205, 19.9033, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="3D/Platforms/Spatial2/plat4"]
+[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Platforms_one/Spatial2/plat4"]
 transform = Transform( 1, 0, 0, 0, 4.5, 0, 0, 0, 1, 0, -1.59348, 0 )
 shape = SubResource( 13 )
 
-[node name="MeshInstance" type="MeshInstance" parent="3D/Platforms/Spatial2/plat4/CollisionShape"]
+[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Platforms_one/Spatial2/plat4/CollisionShape"]
 mesh = SubResource( 15 )
 
-[node name="Fin" type="Spatial" parent="3D"]
+[node name="Fin_one" type="Spatial" parent="3D/world/Level_one"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -82, 0, 0 )
 
-[node name="Finish" type="Area" parent="3D/Fin"]
+[node name="Finish" type="Area" parent="3D/world/Level_one/Fin_one"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 393.698, 9.44165, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="3D/Fin/Finish"]
+[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Fin_one/Finish"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015686, 0.405303, 0 )
 shape = SubResource( 12 )
 
-[node name="RigidBody" type="StaticBody" parent="3D/Fin"]
+[node name="RigidBody" type="StaticBody" parent="3D/world/Level_one/Fin_one"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 394, 14.4531, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="3D/Fin/RigidBody"]
+[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Fin_one/RigidBody"]
 transform = Transform( 1, 0, 0, 0, 0.3, 0, 0, 0, 15, 0, -0.489947, 0 )
 shape = SubResource( 13 )
 
-[node name="MeshInstance" type="MeshInstance" parent="3D/Fin/RigidBody/CollisionShape"]
+[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Fin_one/RigidBody/CollisionShape"]
 mesh = SubResource( 14 )
 
-[node name="RigidBody2" type="StaticBody" parent="3D/Fin"]
+[node name="RigidBody2" type="StaticBody" parent="3D/world/Level_one/Fin_one"]
 transform = Transform( 1, 0, 0, 0, 1.5, 0, 0, 0, 1, 394, 9.37612, 13.995 )
 
-[node name="CollisionShape" type="CollisionShape" parent="3D/Fin/RigidBody2"]
+[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Fin_one/RigidBody2"]
 transform = Transform( 1, 0, 0, 0, 4.5, 0, 0, 0, 1, 0, -1.59348, 0 )
 shape = SubResource( 13 )
 
-[node name="MeshInstance" type="MeshInstance" parent="3D/Fin/RigidBody2/CollisionShape"]
+[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Fin_one/RigidBody2/CollisionShape"]
 mesh = SubResource( 15 )
 
-[node name="RigidBody3" type="StaticBody" parent="3D/Fin"]
+[node name="RigidBody3" type="StaticBody" parent="3D/world/Level_one/Fin_one"]
 transform = Transform( 1, 0, 0, 0, 1.5, 0, 0, 0, 1, 394.003, 9.26554, -13.9938 )
 
-[node name="CollisionShape" type="CollisionShape" parent="3D/Fin/RigidBody3"]
+[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Fin_one/RigidBody3"]
 transform = Transform( 1, 0, 0, 0, 4.5, 0, 0, 0, 1, 0, -1.59348, 0 )
 shape = SubResource( 13 )
 
-[node name="MeshInstance" type="MeshInstance" parent="3D/Fin/RigidBody3/CollisionShape"]
+[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Fin_one/RigidBody3/CollisionShape"]
 mesh = SubResource( 15 )
 
-[node name="Label3D" type="Label3D" parent="3D/Fin"]
+[node name="Label3D" type="Label3D" parent="3D/world/Level_one/Fin_one"]
 transform = Transform( -8.74228e-07, 0, -1, 0, 20, 0, 20, 0, -4.37114e-08, 393.71, 14.5898, 0.163886 )
 text = "The End!
 "
 
-[node name="plat1" type="StaticBody" parent="3D/Fin"]
+[node name="plat1" type="StaticBody" parent="3D/world/Level_one/Fin_one"]
 transform = Transform( 1.5, 0, 0, 0, 1, 0, 0, 0, 1, 400.503, -0.794849, -0.0203581 )
 
-[node name="CollisionShape" type="CollisionShape" parent="3D/Fin/plat1"]
+[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Fin_one/plat1"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0973396, 2.64429, -0.0227585 )
 shape = SubResource( 3 )
 
-[node name="MeshInstance" type="MeshInstance" parent="3D/Fin/plat1"]
+[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Fin_one/plat1"]
 mesh = SubResource( 4 )
 material/0 = SubResource( 16 )
+
+[node name="Killbox_one" type="Area" parent="3D/world/Level_one"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -28.0305, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Killbox_one"]
+transform = Transform( 400, 0, 0, 0, 1, 0, 0, 0, 100, 201.22, -0.41362, -5.4954 )
+shape = SubResource( 21 )
+
+[node name="Level_two" type="Spatial" parent="3D/world"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -260.926 )
+
+[node name="start_platform_two" type="StaticBody" parent="3D/world/Level_two"]
+transform = Transform( 1.5, 0, 0, 0, 1, 0, 0, 0, 1, 14.555, -1, 0 )
+
+[node name="CollisionShape_two" type="CollisionShape" parent="3D/world/Level_two/start_platform_two"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.64429, 0 )
+shape = SubResource( 3 )
+
+[node name="MeshInstance_two" type="MeshInstance" parent="3D/world/Level_two/start_platform_two"]
+mesh = SubResource( 4 )
+material/0 = SubResource( 16 )
+
+[node name="start_line_two" type="StaticBody" parent="3D/world/Level_two/start_platform_two"]
+transform = Transform( 0.133333, 0, 0, 0, 0.001, 0, 0, 0, 15, 1.67733, 1, 0 )
+
+[node name="start_line_collision" type="CollisionShape" parent="3D/world/Level_two/start_platform_two/start_line_two"]
+shape = SubResource( 7 )
+
+[node name="start_line_mesh" type="MeshInstance" parent="3D/world/Level_two/start_platform_two/start_line_two"]
+mesh = SubResource( 9 )
+
+[node name="Start_area_two" type="Area" parent="3D/world/Level_two"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.0752, 8.18452, 0 )
+
+[node name="CollisionShape-two" type="CollisionShape" parent="3D/world/Level_two/Start_area_two"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5058, 0.605266, 0 )
+shape = SubResource( 10 )
+
+[node name="Platforms_two" type="Spatial" parent="3D/world/Level_two"]
+
+[node name="plat1_two" type="StaticBody" parent="3D/world/Level_two/Platforms_two"]
+transform = Transform( 1.5, 0, 0, 0, 1, 0, 0, 0, 1, 81.1048, -1, 0 )
+
+[node name="CollisionShape_two" type="CollisionShape" parent="3D/world/Level_two/Platforms_two/plat1_two"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0973396, 2.64429, -0.0227585 )
+shape = SubResource( 3 )
+
+[node name="MeshInstance_two" type="MeshInstance" parent="3D/world/Level_two/Platforms_two/plat1_two"]
+mesh = SubResource( 4 )
+material/0 = SubResource( 16 )
+
+[node name="plat2_two" type="StaticBody" parent="3D/world/Level_two/Platforms_two"]
+transform = Transform( 1.5, 0, 0, 0, 1, 0, 0, 0, 1, 140.881, 6.73663, 0 )
+
+[node name="CollisionShape_two" type="CollisionShape" parent="3D/world/Level_two/Platforms_two/plat2_two"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0973396, 2.64429, -0.0227585 )
+shape = SubResource( 3 )
+
+[node name="MeshInstance_two" type="MeshInstance" parent="3D/world/Level_two/Platforms_two/plat2_two"]
+mesh = SubResource( 4 )
+material/0 = SubResource( 16 )
+
+[node name="Spatial_two" type="Spatial" parent="3D/world/Level_two/Platforms_two"]
+
+[node name="plat3_two" type="StaticBody" parent="3D/world/Level_two/Platforms_two/Spatial_two"]
+transform = Transform( 1.5, 0, 0, 0, 1, 0, 0, 0, 0.4, 197.415, 6.73663, 0 )
+
+[node name="CollisionShape_two" type="CollisionShape" parent="3D/world/Level_two/Platforms_two/Spatial_two/plat3_two"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0973396, 2.64429, -0.0227585 )
+shape = SubResource( 3 )
+
+[node name="MeshInstance_two" type="MeshInstance" parent="3D/world/Level_two/Platforms_two/Spatial_two/plat3_two"]
+mesh = SubResource( 4 )
+material/0 = SubResource( 16 )
+
+[node name="plat4_two" type="StaticBody" parent="3D/world/Level_two/Platforms_two/Spatial_two"]
+transform = Transform( 10, 0, 0, 0, 2, 0, 0, 0, 6, 205, 19.9033, 0 )
+
+[node name="CollisionShape_two" type="CollisionShape" parent="3D/world/Level_two/Platforms_two/Spatial_two/plat4_two"]
+transform = Transform( 1, 0, 0, 0, 4.5, 0, 0, 0, 1, 0, -1.59348, 0 )
+shape = SubResource( 13 )
+
+[node name="MeshInstance_two" type="MeshInstance" parent="3D/world/Level_two/Platforms_two/Spatial_two/plat4_two/CollisionShape_two"]
+mesh = SubResource( 15 )
+
+[node name="Spatial2_two" type="Spatial" parent="3D/world/Level_two/Platforms_two"]
+transform = Transform( -1, 8.74228e-08, 0, 8.74228e-08, 1, 8.74228e-08, 7.64274e-15, 8.74228e-08, -1, 455, 0, 0 )
+
+[node name="plat3_two" type="StaticBody" parent="3D/world/Level_two/Platforms_two/Spatial2_two"]
+transform = Transform( 1.5, 0, 0, 0, 1, 0, 0, 0, 0.4, 197.415, 6.73663, 0 )
+
+[node name="CollisionShape_two" type="CollisionShape" parent="3D/world/Level_two/Platforms_two/Spatial2_two/plat3_two"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0973396, 2.64429, -0.0227585 )
+shape = SubResource( 3 )
+
+[node name="MeshInstance_two" type="MeshInstance" parent="3D/world/Level_two/Platforms_two/Spatial2_two/plat3_two"]
+mesh = SubResource( 4 )
+material/0 = SubResource( 16 )
+
+[node name="plat4_two" type="StaticBody" parent="3D/world/Level_two/Platforms_two/Spatial2_two"]
+transform = Transform( 10, 0, 0, 0, 2, 0, 0, 0, 6, 205, 19.9033, 0 )
+
+[node name="CollisionShape_two" type="CollisionShape" parent="3D/world/Level_two/Platforms_two/Spatial2_two/plat4_two"]
+transform = Transform( 1, 0, 0, 0, 4.5, 0, 0, 0, 1, 0, -1.59348, 0 )
+shape = SubResource( 13 )
+
+[node name="MeshInstance_two" type="MeshInstance" parent="3D/world/Level_two/Platforms_two/Spatial2_two/plat4_two/CollisionShape_two"]
+mesh = SubResource( 15 )
+
+[node name="Fin_two" type="Spatial" parent="3D/world/Level_two"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -82, 0, 0 )
+
+[node name="Finish_two" type="Area" parent="3D/world/Level_two/Fin_two"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 393.698, 9.44165, 0 )
+
+[node name="CollisionShape_two" type="CollisionShape" parent="3D/world/Level_two/Fin_two/Finish_two"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015686, 0.405303, 0 )
+shape = SubResource( 12 )
+
+[node name="RigidBody" type="StaticBody" parent="3D/world/Level_two/Fin_two"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 394, 14.4531, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_two/Fin_two/RigidBody"]
+transform = Transform( 1, 0, 0, 0, 0.3, 0, 0, 0, 15, 0, -0.489947, 0 )
+shape = SubResource( 13 )
+
+[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_two/Fin_two/RigidBody/CollisionShape"]
+mesh = SubResource( 14 )
+
+[node name="RigidBody2" type="StaticBody" parent="3D/world/Level_two/Fin_two"]
+transform = Transform( 1, 0, 0, 0, 1.5, 0, 0, 0, 1, 394, 9.37612, 13.995 )
+
+[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_two/Fin_two/RigidBody2"]
+transform = Transform( 1, 0, 0, 0, 4.5, 0, 0, 0, 1, 0, -1.59348, 0 )
+shape = SubResource( 13 )
+
+[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_two/Fin_two/RigidBody2/CollisionShape"]
+mesh = SubResource( 15 )
+
+[node name="RigidBody3" type="StaticBody" parent="3D/world/Level_two/Fin_two"]
+transform = Transform( 1, 0, 0, 0, 1.5, 0, 0, 0, 1, 394.003, 9.26554, -13.9938 )
+
+[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_two/Fin_two/RigidBody3"]
+transform = Transform( 1, 0, 0, 0, 4.5, 0, 0, 0, 1, 0, -1.59348, 0 )
+shape = SubResource( 13 )
+
+[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_two/Fin_two/RigidBody3/CollisionShape"]
+mesh = SubResource( 15 )
+
+[node name="Label3D" type="Label3D" parent="3D/world/Level_two/Fin_two"]
+transform = Transform( -8.74228e-07, 0, -1, 0, 20, 0, 20, 0, -4.37114e-08, 393.71, 14.5898, 0.163886 )
+text = "The End!
+"
+
+[node name="plat1" type="StaticBody" parent="3D/world/Level_two/Fin_two"]
+transform = Transform( 1.5, 0, 0, 0, 1, 0, 0, 0, 1, 400.503, -0.794849, -0.0203581 )
+
+[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_two/Fin_two/plat1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0973396, 2.64429, -0.0227585 )
+shape = SubResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_two/Fin_two/plat1"]
+mesh = SubResource( 4 )
+material/0 = SubResource( 16 )
+
+[node name="Killbox" type="Area" parent="3D/world/Level_two"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -28.0305, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_two/Killbox"]
+transform = Transform( 400, 0, 0, 0, 1, 0, 0, 0, 100, 201.22, -0.41362, -5.4954 )
+shape = SubResource( 21 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="3D"]
 environment = SubResource( 18 )
 
-[node name="Killbox" type="Area" parent="3D"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -28.0305, 0 )
-
-[node name="CollisionShape" type="CollisionShape" parent="3D/Killbox"]
-transform = Transform( 400, 0, 0, 0, 1, 0, 0, 0, 100, 201.22, -0.41362, -5.4954 )
-shape = SubResource( 21 )
-
 [connection signal="time" from="2D/timer_lable" to="2D/End_menu/Label" method="_on_timer_lable_time"]
+[connection signal="pressed" from="2D/End_menu/end_menu_mesh" to="3D/player" method="_on_end_menu_mesh_pressed"]
+[connection signal="pressed" from="2D/End_menu/end_menu_mesh" to="3D/player/SpringArm" method="_on_end_menu_mesh_pressed"]
+[connection signal="pressed" from="2D/End_menu/reset_button" to="2D/timer_lable" method="_on_reset_button_pressed"]
 [connection signal="pressed" from="2D/End_menu/reset_button" to="2D/End_menu/end_menu_mesh" method="_on_reset_button_pressed"]
 [connection signal="pressed" from="2D/End_menu/reset_button" to="2D/End_menu/reset_button" method="_on_reset_button_pressed"]
 [connection signal="pressed" from="2D/End_menu/reset_button" to="2D/End_menu/exit_button" method="_on_reset_button_pressed"]
 [connection signal="pressed" from="2D/End_menu/reset_button" to="2D/End_menu/save_time_button" method="_on_reset_button_pressed"]
 [connection signal="pressed" from="2D/End_menu/reset_button" to="2D/End_menu/Label" method="_on_reset_button_pressed"]
-[connection signal="pressed" from="2D/End_menu/reset_button" to="2D/timer_lable" method="_on_reset_button_pressed"]
 [connection signal="pressed" from="2D/End_menu/reset_button" to="3D/player" method="_on_reset_button_pressed"]
 [connection signal="pressed" from="2D/End_menu/reset_button" to="3D/player/SpringArm" method="_on_reset_button_pressed"]
 [connection signal="pressed" from="2D/End_menu/exit_button" to="2D/Start_menu/start_menu" method="_on_exit_button_pressed"]
 [connection signal="pressed" from="2D/End_menu/exit_button" to="2D/Start_menu/Button" method="_on_exit_button_pressed"]
 [connection signal="pressed" from="2D/End_menu/exit_button" to="2D/Start_menu/quit_button" method="_on_exit_button_pressed"]
 [connection signal="pressed" from="2D/End_menu/exit_button" to="2D/Start_menu/name_lable" method="_on_exit_button_pressed"]
-[connection signal="escape" from="2D/End_menu/save_time_button" to="3D/player/SpringArm" method="_on_save_time_button_escape"]
 [connection signal="pressed" from="2D/End_menu/save_time_button" to="2D/Leaderboard_menu/leaderboard_menu" method="_on_save_time_button_pressed"]
 [connection signal="pressed" from="2D/End_menu/save_time_button" to="2D/Leaderboard_menu/leaderboard_back_button" method="_on_save_time_button_pressed"]
 [connection signal="pressed" from="2D/End_menu/save_time_button" to="2D/Leaderboard_menu/high_score_lable" method="_on_save_time_button_pressed"]
 [connection signal="pressed" from="2D/Leaderboard_menu/leaderboard_back_button" to="2D/Leaderboard_menu/leaderboard_menu" method="_on_leaderboard_back_button_pressed"]
 [connection signal="pressed" from="2D/Leaderboard_menu/leaderboard_back_button" to="2D/Leaderboard_menu/leaderboard_back_button" method="_on_leaderboard_back_button_pressed"]
 [connection signal="pressed" from="2D/Leaderboard_menu/leaderboard_back_button" to="2D/Leaderboard_menu/high_score_lable" method="_on_leaderboard_back_button_pressed"]
+[connection signal="pressed" from="2D/Start_menu/Button" to="2D/timer_lable" method="_on_Button_pressed"]
 [connection signal="pressed" from="2D/Start_menu/Button" to="2D/End_menu/end_menu_mesh" method="_on_Button_pressed"]
 [connection signal="pressed" from="2D/Start_menu/Button" to="2D/End_menu/reset_button" method="_on_Button_pressed"]
 [connection signal="pressed" from="2D/Start_menu/Button" to="2D/End_menu/exit_button" method="_on_Button_pressed"]
 [connection signal="pressed" from="2D/Start_menu/Button" to="2D/End_menu/save_time_button" method="_on_Button_pressed"]
 [connection signal="pressed" from="2D/Start_menu/Button" to="2D/End_menu/Label" method="_on_Button_pressed"]
-[connection signal="pressed" from="2D/Start_menu/Button" to="2D/timer_lable" method="_on_Button_pressed"]
 [connection signal="pressed" from="2D/Start_menu/Button" to="2D/Leaderboard_menu/leaderboard_menu" method="_on_Button_pressed"]
 [connection signal="pressed" from="2D/Start_menu/Button" to="2D/Leaderboard_menu/leaderboard_back_button" method="_on_Button_pressed"]
 [connection signal="pressed" from="2D/Start_menu/Button" to="2D/Leaderboard_menu/high_score_lable" method="_on_Button_pressed"]
@@ -421,15 +598,27 @@ shape = SubResource( 21 )
 [connection signal="pressed" from="2D/Start_menu/Button" to="3D/player" method="_on_Button_pressed"]
 [connection signal="pressed" from="2D/Start_menu/Button" to="3D/player/SpringArm" method="_on_Button_pressed"]
 [connection signal="pressed" from="2D/Start_menu/quit_button" to="2D/Start_menu/quit_button" method="_on_quit_button_pressed"]
-[connection signal="body_entered" from="3D/Start_area" to="2D/End_menu/Label" method="_on_Start_area_body_entered"]
-[connection signal="body_entered" from="3D/Start_area" to="2D/timer_lable" method="_on_Start_body_entered"]
-[connection signal="body_entered" from="3D/Fin/Finish" to="2D/End_menu/end_menu_mesh" method="_on_Finish_body_entered"]
-[connection signal="body_entered" from="3D/Fin/Finish" to="2D/End_menu/reset_button" method="_on_Finish_body_entered"]
-[connection signal="body_entered" from="3D/Fin/Finish" to="2D/End_menu/exit_button" method="_on_Finish_body_entered"]
-[connection signal="body_entered" from="3D/Fin/Finish" to="2D/End_menu/save_time_button" method="_on_Finish_body_entered"]
-[connection signal="body_entered" from="3D/Fin/Finish" to="2D/End_menu/Label" method="_on_Finish_body_entered"]
-[connection signal="body_entered" from="3D/Fin/Finish" to="2D/timer_lable" method="_on_Finish_body_entered"]
-[connection signal="body_entered" from="3D/Fin/Finish" to="3D/player" method="_on_Finish_body_entered"]
-[connection signal="body_entered" from="3D/Fin/Finish" to="3D/player/SpringArm" method="_on_Finish_body_entered"]
-[connection signal="body_entered" from="3D/Killbox" to="2D/timer_lable" method="_on_Area_body_entered"]
-[connection signal="body_entered" from="3D/Killbox" to="3D/player" method="_on_Area_body_entered"]
+[connection signal="body_entered" from="3D/world/Level_one/start_area_one" to="2D/timer_lable" method="_on_Start_body_entered"]
+[connection signal="body_entered" from="3D/world/Level_one/start_area_one" to="2D/End_menu/Label" method="_on_Start_area_body_entered"]
+[connection signal="body_entered" from="3D/world/Level_one/Fin_one/Finish" to="2D/timer_lable" method="_on_Finish_body_entered"]
+[connection signal="body_entered" from="3D/world/Level_one/Fin_one/Finish" to="2D/End_menu/end_menu_mesh" method="_on_Finish_body_entered"]
+[connection signal="body_entered" from="3D/world/Level_one/Fin_one/Finish" to="2D/End_menu/reset_button" method="_on_Finish_body_entered"]
+[connection signal="body_entered" from="3D/world/Level_one/Fin_one/Finish" to="2D/End_menu/exit_button" method="_on_Finish_body_entered"]
+[connection signal="body_entered" from="3D/world/Level_one/Fin_one/Finish" to="2D/End_menu/save_time_button" method="_on_Finish_body_entered"]
+[connection signal="body_entered" from="3D/world/Level_one/Fin_one/Finish" to="2D/End_menu/Label" method="_on_Finish_body_entered"]
+[connection signal="body_entered" from="3D/world/Level_one/Fin_one/Finish" to="3D/player" method="_on_Finish_body_entered"]
+[connection signal="body_entered" from="3D/world/Level_one/Fin_one/Finish" to="3D/player/SpringArm" method="_on_Finish_body_entered"]
+[connection signal="body_entered" from="3D/world/Level_one/Killbox_one" to="2D/timer_lable" method="_on_Area_body_entered"]
+[connection signal="body_entered" from="3D/world/Level_one/Killbox_one" to="3D/player" method="_on_Area_body_entered"]
+[connection signal="body_entered" from="3D/world/Level_two/Start_area_two" to="2D/timer_lable" method="_on_Start_body_entered"]
+[connection signal="body_entered" from="3D/world/Level_two/Start_area_two" to="2D/End_menu/Label" method="_on_Start_area_body_entered"]
+[connection signal="body_entered" from="3D/world/Level_two/Fin_two/Finish_two" to="2D/timer_lable" method="_on_Finish_body_entered"]
+[connection signal="body_entered" from="3D/world/Level_two/Fin_two/Finish_two" to="2D/End_menu/end_menu_mesh" method="_on_Finish_body_entered"]
+[connection signal="body_entered" from="3D/world/Level_two/Fin_two/Finish_two" to="2D/End_menu/reset_button" method="_on_Finish_body_entered"]
+[connection signal="body_entered" from="3D/world/Level_two/Fin_two/Finish_two" to="2D/End_menu/exit_button" method="_on_Finish_body_entered"]
+[connection signal="body_entered" from="3D/world/Level_two/Fin_two/Finish_two" to="2D/End_menu/save_time_button" method="_on_Finish_body_entered"]
+[connection signal="body_entered" from="3D/world/Level_two/Fin_two/Finish_two" to="2D/End_menu/Label" method="_on_Finish_body_entered"]
+[connection signal="body_entered" from="3D/world/Level_two/Fin_two/Finish_two" to="3D/player" method="_on_Finish_body_entered"]
+[connection signal="body_entered" from="3D/world/Level_two/Fin_two/Finish_two" to="3D/player/SpringArm" method="_on_Finish_body_entered"]
+[connection signal="body_entered" from="3D/world/Level_two/Killbox" to="2D/timer_lable" method="_on_Area_body_entered"]
+[connection signal="body_entered" from="3D/world/Level_two/Killbox" to="3D/player" method="_on_Area_body_entered"]

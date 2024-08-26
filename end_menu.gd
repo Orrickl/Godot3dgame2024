@@ -1,7 +1,5 @@
 extends Button
 
-signal escape(escape)
-
 var escape = false
 
 func _input(_event):
