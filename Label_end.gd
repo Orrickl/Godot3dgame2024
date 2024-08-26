@@ -1,6 +1,6 @@
 extends Label
 
-
+var time
 var pressed = false
 
 func _input(event):
@@ -23,7 +23,8 @@ func _on_Button_pressed():
 
 
 func _on_timer_lable_time(value):
-	text = var2str(value)
+	time = value
+	text = var2str(time)
 
 
 func _on_reset_button_pressed():

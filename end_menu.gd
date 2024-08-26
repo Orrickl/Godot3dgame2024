@@ -1,8 +1,10 @@
 extends Button
 
+signal escape(escape)
+
 var escape = false
 
-func _input(event):
+func _input(_event):
 	if (Input.get_action_strength("escape")!=0):
 		escape = true
 	if (Input.get_action_strength("escape") == 0) and (escape == true):
@@ -13,7 +15,6 @@ func _input(event):
 			visible = true
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		escape = false
-	emit_signal("escape", escape)
 
 
 
