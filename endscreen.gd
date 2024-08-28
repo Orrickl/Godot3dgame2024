@@ -1,7 +1,9 @@
 extends MeshInstance2D
 
+
 var pressed = false
 signal pressed(value)
+signal post()
 
 func _input(_event):
 	if (Input.get_action_strength("escape")!=0) and (pressed == false):
@@ -19,7 +21,7 @@ func _input(_event):
 
 func _on_Finish_body_entered(_body):
 	visible = true
-
+	emit_signal("post")
 
 func _on_Button_pressed():
 	visible = false

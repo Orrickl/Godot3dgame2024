@@ -1,5 +1,5 @@
 extends Label
-signal time(value)
+signal time(time)
 
 var time = 0
 var timer_on = false
@@ -31,10 +31,10 @@ func _process(delta):
 	text = var2str(time)
 
 		
-	var file = File.new()
+	#var file = File.new()
 	#file.open("user://" + $timer_lable.text , File.WRITE)
-	file.store_var(time)
-	file.close()
+	#file.store_var(time)
+	#file.close()
 
 
 func _on_Start_body_entered(_body):
