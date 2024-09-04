@@ -19,6 +19,3 @@ var headers = ["Content-Type: application/json"]
 #func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 #	print(body.get_string_from_utf8())
 
-
-func _on_timer_lable_time(timer):
-	timer 

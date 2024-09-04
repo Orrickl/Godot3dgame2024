@@ -15,8 +15,6 @@ func _input(_event):
 		escape = false
 
 
-
-
 func _on_Finish_body_entered(_body):
 	visible = true
 

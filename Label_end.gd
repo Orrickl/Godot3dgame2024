@@ -24,7 +24,7 @@ func _on_Button_pressed():
 
 func _on_timer_lable_time(value):
 	time = value
-	text = var2str(time)
+	text = "your time is " + var2str(time)
 
 
 func _on_reset_button_pressed():

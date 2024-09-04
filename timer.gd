@@ -1,12 +1,14 @@
 extends Label
+
 signal time(time)
+signal finish_time(time)
 
 var time = 0
 var timer_on = false
+var pressed = false
 
 const Save_file = "User://high_scores_file.tres"
 
-var pressed = false
 
 func _input(_event):
 	if (Input.get_action_strength("escape")!=0) and (pressed == false):
@@ -21,6 +23,7 @@ func _input(_event):
 			timer_on = true
 		pressed = false
 
+
 func _process(delta):
 	if(timer_on):
 		time += delta
@@ -30,20 +33,15 @@ func _process(delta):
 	time = round(time*100)/100
 	text = var2str(time)
 
-		
-	#var file = File.new()
-	#file.open("user://" + $timer_lable.text , File.WRITE)
-	#file.store_var(time)
-	#file.close()
-
 
 func _on_Start_body_entered(_body):
 	timer_on = true
 
 
 func _on_Finish_body_entered(_body):
-	timer_on = false
 	emit_signal("time",time)
+	emit_signal("finish_time",time)
+	timer_on = false
 
 
 func _on_reset_button_pressed():

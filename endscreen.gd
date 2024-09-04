@@ -23,6 +23,7 @@ func _on_Finish_body_entered(_body):
 	visible = true
 	emit_signal("post")
 
+
 func _on_Button_pressed():
 	visible = false
 

@@ -46,11 +46,11 @@ func _physics_process(delta: float) -> void:
 		if _velocity.length() > 0.2:
 			var look_direction = Vector2(_velocity.z, _velocity.x)
 			_model.rotation.y = look_direction.angle()
-			
 
 
 func _process(_delta: float) -> void:
 	_spring_arm.translation = translation
+
 
 func _on_Area_body_entered(_body):
 	global_translation = _die_position
@@ -59,6 +59,7 @@ func _on_Area_body_entered(_body):
 func _on_Button_pressed():
 	playstate = 1
 	global_translation = _starting_position
+
 
 func _on_Finish_body_entered(_body):
 	playstate = 0
