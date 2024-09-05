@@ -15,7 +15,7 @@ var _snap_vector := Vector3.DOWN
 
 onready var _spring_arm: SpringArm = $SpringArm
 onready var _model: Spatial = $PlayerShape
-onready var _starting_position = $Start.global_translation
+onready var _starting_position = $start_point.global_translation
 onready var _die_position = $die_start.global_translation
 
 
@@ -23,7 +23,7 @@ func _physics_process(delta: float) -> void:
 	if(Input.get_action_strength("reset")!=0):
 		global_translation = _starting_position
 		playstate = 1
-	if(playstate==1):
+	if(playstate == 1):
 		var move_direction := Vector3.ZERO
 		move_direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 		move_direction.z = Input.get_action_strength("back") - Input.get_action_strength("forward")
