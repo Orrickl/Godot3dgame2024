@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://timer.gd" type="Script" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
@@ -60,9 +60,45 @@ extents = Vector3( 0.861979, 2.8069, 14.8677 )
 
 [sub_resource type="CubeMesh" id=25]
 
+[sub_resource type="CylinderShape" id=32]
+
+[sub_resource type="CylinderMesh" id=33]
+
+[sub_resource type="CylinderShape" id=30]
+
+[sub_resource type="CylinderMesh" id=31]
+
+[sub_resource type="CylinderShape" id=34]
+
+[sub_resource type="CylinderMesh" id=35]
+
+[sub_resource type="CylinderShape" id=36]
+
+[sub_resource type="CylinderMesh" id=37]
+
+[sub_resource type="CylinderShape" id=38]
+
+[sub_resource type="CylinderMesh" id=39]
+
+[sub_resource type="CylinderShape" id=40]
+
+[sub_resource type="CylinderMesh" id=41]
+
+[sub_resource type="CylinderShape" id=42]
+
+[sub_resource type="CylinderMesh" id=43]
+
+[sub_resource type="CylinderShape" id=44]
+
+[sub_resource type="CylinderMesh" id=45]
+
 [sub_resource type="BoxShape" id=26]
 
 [sub_resource type="CubeMesh" id=27]
+
+[sub_resource type="BoxShape" id=46]
+
+[sub_resource type="CubeMesh" id=47]
 
 [sub_resource type="SphereShape" id=29]
 
@@ -83,12 +119,11 @@ ss_reflections_enabled = true
 
 [node name="timer_lable" type="Label" parent="2D"]
 margin_left = 509.0
-margin_top = 39.0
+margin_top = 30.0
 margin_right = 579.0
 margin_bottom = 117.0
 custom_colors/font_color = Color( 0.909804, 0.313726, 0.313726, 1 )
 text = "\"0.1\""
-valign = 1
 script = ExtResource( 1 )
 
 [node name="End_menu" type="Control" parent="2D"]
@@ -235,7 +270,7 @@ shape = SubResource( 7 )
 mesh = SubResource( 9 )
 
 [node name="start_area_one" type="Area" parent="3D/world/Level_one/start_platform_one"]
-transform = Transform( 0.667, 0, 0, 0, 1, 0, 0, 0, 2, 1.68013, 9.18452, 0 )
+transform = Transform( 0.667, 0, 0, 0, 3, 0, 0, 0, 2, 1.68013, 9.18452, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/start_platform_one/start_area_one"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5058, 0.605266, 0 )
@@ -245,7 +280,7 @@ shape = SubResource( 10 )
 transform = Transform( 0.766044, 0, 0.642788, 0, 1, 0, -0.642788, 0, 0.766044, 661.534, 1.45267, 50.3825 )
 
 [node name="plat1" type="StaticBody" parent="3D/world/Level_one/Platforms_one"]
-transform = Transform( 1.14907, 0, -0.642788, 0, 1, 0, 0.964181, 0, 0.766044, 81.1048, -1, 0 )
+transform = Transform( 1.14907, 0, -0.642788, 0, 1, 0, 0.964181, 0, 0.766044, 80.2125, -1, 0.873444 )
 
 [node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Platforms_one/plat1"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0973396, 2.64429, -0.0227585 )
@@ -267,7 +302,7 @@ mesh = SubResource( 4 )
 material/0 = SubResource( 16 )
 
 [node name="Spatial" type="Spatial" parent="3D/world/Level_one/Platforms_one"]
-transform = Transform( 0.766044, 0, -0.642787, 0, 1, 0, 0.642787, 0, 0.766044, 219.894, 0, 114.913 )
+transform = Transform( 0.766044, 0, -0.642787, 0, 1, 0, 0.642787, 0, 0.766044, 216.121, 0, 111.747 )
 
 [node name="plat3" type="StaticBody" parent="3D/world/Level_one/Platforms_one/Spatial"]
 transform = Transform( 1.5, 0, -4.26326e-14, 0, 1, 0, 0, 0, 0.4, 0, 6.98829, 0 )
@@ -281,7 +316,7 @@ mesh = SubResource( 4 )
 material/0 = SubResource( 16 )
 
 [node name="plat4" type="StaticBody" parent="3D/world/Level_one/Platforms_one/Spatial"]
-transform = Transform( 10, 0, 0, 0, 2, 0, 0, 0, 6, 0, 20, 0 )
+transform = Transform( 9.99999, 0, -1.81899e-12, 0, 2, 0, 3.63798e-12, 0, 6, -4.72021, 20, -5.00679e-06 )
 
 [node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Platforms_one/Spatial/plat4"]
 transform = Transform( 1, 0, 0, 0, 9, 0, 0, 0, 1, 0, -1.593, 0 )
@@ -306,18 +341,18 @@ mesh = SubResource( 4 )
 material/0 = SubResource( 16 )
 
 [node name="plat4" type="StaticBody" parent="3D/world/Level_one/Platforms_one/Spatial2"]
-transform = Transform( 10, 0, 2.38418e-07, 0, 2, 0, -4.76837e-07, 0, 6, -2.707, 13.2, 0 )
+transform = Transform( 10, 0, 2.38418e-07, 0, 2, 0, -4.76834e-07, 0, 6, 5.56836, 13.2, 6.4373e-06 )
 
 [node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Platforms_one/Spatial2/plat4"]
 transform = Transform( 1, 0, 0, 0, 9, 0, 0, 0, 1, 0, -1.59348, 0 )
 shape = SubResource( 13 )
 
 [node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Platforms_one/Spatial2/plat4/CollisionShape"]
-transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 0.5, 0, -2.27374e-13, 0, 1, -0.0173798, 0, -2.98023e-08 )
 mesh = SubResource( 15 )
 
 [node name="Fin_one" type="Spatial" parent="3D/world/Level_one"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 577.74, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 2, 0, 0, 0, 2, 577.74, 0, -5.20362 )
 
 [node name="finish_zone" type="Area" parent="3D/world/Level_one/Fin_one"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 3, 393.698, 9.44165, 0 )
@@ -369,7 +404,7 @@ mesh = SubResource( 4 )
 material/0 = SubResource( 16 )
 
 [node name="end_lable" type="Label3D" parent="3D/world/Level_one/Fin_one"]
-transform = Transform( -8.74228e-07, 0, -1, 0, 20, 0, 20, 0, -4.37114e-08, 405.982, 60.17, 0.163886 )
+transform = Transform( -4.37114e-07, 0, -0.5, 0, 10, 0, 10, 0, -2.18557e-08, 405.982, 60.17, 0.163886 )
 pixel_size = 0.2
 modulate = Color( 1, 0.329412, 0, 1 )
 text = "The End!
@@ -399,335 +434,234 @@ transform = Transform( 1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0 )
 mesh = SubResource( 25 )
 
 [node name="Middle_platforms" type="Spatial" parent="3D/world/Level_one/Generic_platforms"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 297.019, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 268.873, 0, -20.1484 )
 
-[node name="generic_platform" type="StaticBody" parent="3D/world/Level_one/Generic_platforms/Middle_platforms"]
-transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 11, 49.3451, 0, 57.1124 )
+[node name="middle_left" type="Spatial" parent="3D/world/Level_one/Generic_platforms/Middle_platforms"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 168.474, 0, 89.4687 )
 
-[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform"]
+[node name="generic_platform7" type="StaticBody" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_left"]
+transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 11, 214.019, 0, 59.4294 )
+
+[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_left/generic_platform7"]
+transform = Transform( 1, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 32 )
+
+[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_left/generic_platform7/CollisionShape"]
+transform = Transform( 1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0 )
+mesh = SubResource( 33 )
+
+[node name="generic_platform8" type="StaticBody" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_left"]
+transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 11, 138.789, 0, -103.425 )
+
+[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_left/generic_platform8"]
+transform = Transform( 1, 0, -3.55271e-15, 0, 4, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 30 )
+
+[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_left/generic_platform8/CollisionShape"]
+transform = Transform( 1, 0, 0, 0, 0.25, 0, -7.10543e-15, 0, 1, 0, 0, 0 )
+mesh = SubResource( 31 )
+
+[node name="generic_platform9" type="StaticBody" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_left"]
+transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 11, 165.74, 0, -61.3952 )
+
+[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_left/generic_platform9"]
+transform = Transform( 1, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 34 )
+
+[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_left/generic_platform9/CollisionShape"]
+transform = Transform( 1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0 )
+mesh = SubResource( 35 )
+
+[node name="generic_platform10" type="StaticBody" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_left"]
+transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 11, 191.416, 0, -22.8634 )
+
+[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_left/generic_platform10"]
+transform = Transform( 1, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 36 )
+
+[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_left/generic_platform10/CollisionShape"]
+transform = Transform( 1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0 )
+mesh = SubResource( 37 )
+
+[node name="generic_platform11" type="StaticBody" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_left"]
+transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 11, 215.665, 0, 19.9225 )
+
+[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_left/generic_platform11"]
+transform = Transform( 1, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 38 )
+
+[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_left/generic_platform11/CollisionShape"]
+transform = Transform( 1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0 )
+mesh = SubResource( 39 )
+
+[node name="generic_platform12" type="StaticBody" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_left"]
+transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 11, 205.175, 0, 99.9703 )
+
+[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_left/generic_platform12"]
+transform = Transform( 1, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 40 )
+
+[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_left/generic_platform12/CollisionShape"]
+transform = Transform( 1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0 )
+mesh = SubResource( 41 )
+
+[node name="generic_platform13" type="StaticBody" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_left"]
+transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 11, 173.331, 0, 140.91 )
+
+[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_left/generic_platform13"]
+transform = Transform( 1, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 42 )
+
+[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_left/generic_platform13/CollisionShape"]
+transform = Transform( 1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0 )
+mesh = SubResource( 43 )
+
+[node name="generic_platform14" type="StaticBody" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_left"]
+transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 11, 138.789, 0, 182.392 )
+
+[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_left/generic_platform14"]
+transform = Transform( 1, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 44 )
+
+[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_left/generic_platform14/CollisionShape"]
+transform = Transform( 1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0 )
+mesh = SubResource( 45 )
+
+[node name="middle_middle" type="Spatial" parent="3D/world/Level_one/Generic_platforms/Middle_platforms"]
+transform = Transform( -4.37114e-08, 0, 1.2, 0, 1, 0, -1, 0, -5.24537e-08, 192.428, 0, 226.568 )
+
+[node name="generic_platform13" type="StaticBody" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_middle"]
+transform = Transform( 1.5, 0, 1.42109e-14, 0, 1, 0, -4.26326e-15, 0, 5, 207.265, 0, 59.4294 )
+
+[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_middle/generic_platform13"]
 transform = Transform( 1, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 26 )
 
-[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform/CollisionShape"]
+[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_middle/generic_platform13/CollisionShape"]
 transform = Transform( 1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0 )
 mesh = SubResource( 27 )
 
-[node name="generic_platform2" type="StaticBody" parent="3D/world/Level_one/Generic_platforms/Middle_platforms"]
-transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 11, 42.2772, 0, -106.517 )
+[node name="generic_platform14" type="StaticBody" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_middle"]
+transform = Transform( 1.5, 0, 1.42109e-14, 0, 1, 0, -4.26326e-15, 0, 5, 207.265, 0, -103.425 )
 
-[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform2"]
+[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_middle/generic_platform14"]
 transform = Transform( 1, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 26 )
 
-[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform2/CollisionShape"]
+[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_middle/generic_platform14/CollisionShape"]
 transform = Transform( 1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0 )
 mesh = SubResource( 27 )
 
-[node name="generic_platform3" type="StaticBody" parent="3D/world/Level_one/Generic_platforms/Middle_platforms"]
-transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 11, 53.3912, 0, -66.1787 )
+[node name="generic_platform15" type="StaticBody" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_middle"]
+transform = Transform( 1.5, 0, 1.42109e-14, 0, 1, 0, -4.26326e-15, 0, 5, 207.265, 0, -61.3952 )
 
-[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform3"]
+[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_middle/generic_platform15"]
 transform = Transform( 1, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 26 )
 
-[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform3/CollisionShape"]
+[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_middle/generic_platform15/CollisionShape"]
 transform = Transform( 1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0 )
 mesh = SubResource( 27 )
 
-[node name="generic_platform4" type="StaticBody" parent="3D/world/Level_one/Generic_platforms/Middle_platforms"]
-transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 11, 49.3451, 0, -23.9166 )
+[node name="generic_platform16" type="StaticBody" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_middle"]
+transform = Transform( 1.5, 0, 1.42109e-14, 0, 1, 0, -4.26326e-15, 0, 5, 207.265, 0, -22.8634 )
 
-[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform4"]
+[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_middle/generic_platform16"]
 transform = Transform( 1, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 26 )
 
-[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform4/CollisionShape"]
+[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_middle/generic_platform16/CollisionShape"]
 transform = Transform( 1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0 )
 mesh = SubResource( 27 )
 
-[node name="generic_platform5" type="StaticBody" parent="3D/world/Level_one/Generic_platforms/Middle_platforms"]
-transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 11, 36.4291, 0, 14.5661 )
+[node name="generic_platform17" type="StaticBody" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_middle"]
+transform = Transform( 1.5, 0, 1.42109e-14, 0, 1, 0, -4.26326e-15, 0, 5, 207.265, 0, 19.9225 )
 
-[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform5"]
+[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_middle/generic_platform17"]
 transform = Transform( 1, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 26 )
 
-[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform5/CollisionShape"]
+[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_middle/generic_platform17/CollisionShape"]
 transform = Transform( 1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0 )
 mesh = SubResource( 27 )
 
-[node name="generic_platform6" type="StaticBody" parent="3D/world/Level_one/Generic_platforms/Middle_platforms"]
-transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 11, 48.2555, 0, 99.9703 )
+[node name="generic_platform18" type="StaticBody" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_middle"]
+transform = Transform( 1.5, 0, 1.42109e-14, 0, 1, 0, -4.26326e-15, 0, 5, 207.265, 0, 99.9703 )
 
-[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform6"]
+[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_middle/generic_platform18"]
 transform = Transform( 1, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 26 )
 
-[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform6/CollisionShape"]
+[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_middle/generic_platform18/CollisionShape"]
 transform = Transform( 1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0 )
 mesh = SubResource( 27 )
 
-[node name="generic_platform7" type="StaticBody" parent="3D/world/Level_one/Generic_platforms/Middle_platforms"]
-transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 11, 115.027, 0, 59.4294 )
+[node name="generic_platform19" type="StaticBody" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_middle"]
+transform = Transform( 1.5, 0, 1.42109e-14, 0, 1, 0, -4.26326e-15, 0, 5, 209.081, 0, 140.91 )
 
-[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform7"]
+[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_middle/generic_platform19"]
 transform = Transform( 1, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 26 )
 
-[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform7/CollisionShape"]
+[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_middle/generic_platform19/CollisionShape"]
 transform = Transform( 1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0 )
 mesh = SubResource( 27 )
 
-[node name="generic_platform8" type="StaticBody" parent="3D/world/Level_one/Generic_platforms/Middle_platforms"]
-transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 11, 115.027, 0, -103.425 )
+[node name="middle_right" type="Spatial" parent="3D/world/Level_one/Generic_platforms/Middle_platforms"]
+transform = Transform( -4.37114e-08, 0, 1.55, 0, 1, 0, -1, 0, -6.77527e-08, 215.603, 21.8129, 413.602 )
 
-[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform8"]
+[node name="generic_platform19" type="StaticBody" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_right"]
+transform = Transform( 10.6066, -0.707107, -6.82121e-13, 10.6066, 0.707107, 0, 0, 0, 20, 281.338, -11.1626, 40.7596 )
+
+[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_right/generic_platform19"]
+transform = Transform( 1, 0, -1.06581e-14, 0, 4, 0, 0, 0, 1, 1.90735e-06, 0, 0 )
+shape = SubResource( 46 )
+
+[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_right/generic_platform19/CollisionShape"]
+transform = Transform( 1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0 )
+mesh = SubResource( 47 )
+
+[node name="generic_platform21" type="StaticBody" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_right"]
+transform = Transform( 10.6066, 0.707107, -6.82121e-13, -10.6066, 0.707107, 0, 0, 0, 20, 305.203, -11.1626, -80.065 )
+
+[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_right/generic_platform21"]
 transform = Transform( 1, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 26 )
 
-[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform8/CollisionShape"]
+[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_right/generic_platform21/CollisionShape"]
 transform = Transform( 1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0 )
 mesh = SubResource( 27 )
 
-[node name="generic_platform9" type="StaticBody" parent="3D/world/Level_one/Generic_platforms/Middle_platforms"]
-transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 11, 115.027, 0, -61.3952 )
+[node name="generic_platform22" type="StaticBody" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_right"]
+transform = Transform( 10.6066, -0.707107, -6.82121e-13, 10.6066, 0.707107, 0, 0, 0, 20, 281.338, -11.1626, -41.5331 )
 
-[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform9"]
+[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_right/generic_platform22"]
 transform = Transform( 1, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 26 )
 
-[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform9/CollisionShape"]
+[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_right/generic_platform22/CollisionShape"]
 transform = Transform( 1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0 )
 mesh = SubResource( 27 )
 
-[node name="generic_platform10" type="StaticBody" parent="3D/world/Level_one/Generic_platforms/Middle_platforms"]
-transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 11, 115.027, 0, -22.8634 )
+[node name="generic_platform23" type="StaticBody" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_right"]
+transform = Transform( 10.6066, 0.707107, -6.82121e-13, -10.6066, 0.707107, 0, 0, 0, 20, 305.203, -11.1626, 1.25275 )
 
-[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform10"]
+[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_right/generic_platform23"]
 transform = Transform( 1, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 26 )
 
-[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform10/CollisionShape"]
+[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_right/generic_platform23/CollisionShape"]
 transform = Transform( 1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0 )
 mesh = SubResource( 27 )
 
-[node name="generic_platform11" type="StaticBody" parent="3D/world/Level_one/Generic_platforms/Middle_platforms"]
-transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 11, 115.027, 0, 19.9225 )
+[node name="generic_platform24" type="StaticBody" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_right"]
+transform = Transform( 10.6066, 0.707107, -6.82121e-13, -10.6066, 0.707107, 0, 0, 0, 20, 305.203, -11.1626, 81.3005 )
 
-[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform11"]
+[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_right/generic_platform24"]
 transform = Transform( 1, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 26 )
 
-[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform11/CollisionShape"]
-transform = Transform( 1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0 )
-mesh = SubResource( 27 )
-
-[node name="generic_platform12" type="StaticBody" parent="3D/world/Level_one/Generic_platforms/Middle_platforms"]
-transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 11, 115.027, 0, 99.9703 )
-
-[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform12"]
-transform = Transform( 1, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 0 )
-shape = SubResource( 26 )
-
-[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform12/CollisionShape"]
-transform = Transform( 1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0 )
-mesh = SubResource( 27 )
-
-[node name="generic_platform13" type="StaticBody" parent="3D/world/Level_one/Generic_platforms/Middle_platforms"]
-transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 11, 170.692, 0, 59.4294 )
-
-[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform13"]
-transform = Transform( 1, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 0 )
-shape = SubResource( 26 )
-
-[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform13/CollisionShape"]
-transform = Transform( 1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0 )
-mesh = SubResource( 27 )
-
-[node name="generic_platform14" type="StaticBody" parent="3D/world/Level_one/Generic_platforms/Middle_platforms"]
-transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 11, 170.692, 0, -103.425 )
-
-[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform14"]
-transform = Transform( 1, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 0 )
-shape = SubResource( 26 )
-
-[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform14/CollisionShape"]
-transform = Transform( 1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0 )
-mesh = SubResource( 27 )
-
-[node name="generic_platform15" type="StaticBody" parent="3D/world/Level_one/Generic_platforms/Middle_platforms"]
-transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 11, 170.692, 0, -61.3952 )
-
-[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform15"]
-transform = Transform( 1, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 0 )
-shape = SubResource( 26 )
-
-[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform15/CollisionShape"]
-transform = Transform( 1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0 )
-mesh = SubResource( 27 )
-
-[node name="generic_platform16" type="StaticBody" parent="3D/world/Level_one/Generic_platforms/Middle_platforms"]
-transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 11, 170.692, 0, -22.8634 )
-
-[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform16"]
-transform = Transform( 1, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 0 )
-shape = SubResource( 26 )
-
-[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform16/CollisionShape"]
-transform = Transform( 1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0 )
-mesh = SubResource( 27 )
-
-[node name="generic_platform17" type="StaticBody" parent="3D/world/Level_one/Generic_platforms/Middle_platforms"]
-transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 11, 170.692, 0, 19.9225 )
-
-[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform17"]
-transform = Transform( 1, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 0 )
-shape = SubResource( 26 )
-
-[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform17/CollisionShape"]
-transform = Transform( 1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0 )
-mesh = SubResource( 27 )
-
-[node name="generic_platform18" type="StaticBody" parent="3D/world/Level_one/Generic_platforms/Middle_platforms"]
-transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 11, 170.692, 0, 99.9703 )
-
-[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform18"]
-transform = Transform( 1, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 0 )
-shape = SubResource( 26 )
-
-[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform18/CollisionShape"]
-transform = Transform( 1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0 )
-mesh = SubResource( 27 )
-
-[node name="generic_platform19" type="StaticBody" parent="3D/world/Level_one/Generic_platforms/Middle_platforms"]
-transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 11, 237.054, 0, 59.4294 )
-
-[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform19"]
-transform = Transform( 1, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 0 )
-shape = SubResource( 26 )
-
-[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform19/CollisionShape"]
-transform = Transform( 1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0 )
-mesh = SubResource( 27 )
-
-[node name="generic_platform20" type="StaticBody" parent="3D/world/Level_one/Generic_platforms/Middle_platforms"]
-transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 11, 237.054, 0, -103.425 )
-
-[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform20"]
-transform = Transform( 1, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 0 )
-shape = SubResource( 26 )
-
-[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform20/CollisionShape"]
-transform = Transform( 1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0 )
-mesh = SubResource( 27 )
-
-[node name="generic_platform21" type="StaticBody" parent="3D/world/Level_one/Generic_platforms/Middle_platforms"]
-transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 11, 237.054, 0, -61.3952 )
-
-[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform21"]
-transform = Transform( 1, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 0 )
-shape = SubResource( 26 )
-
-[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform21/CollisionShape"]
-transform = Transform( 1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0 )
-mesh = SubResource( 27 )
-
-[node name="generic_platform22" type="StaticBody" parent="3D/world/Level_one/Generic_platforms/Middle_platforms"]
-transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 11, 237.054, 0, -22.8634 )
-
-[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform22"]
-transform = Transform( 1, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 0 )
-shape = SubResource( 26 )
-
-[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform22/CollisionShape"]
-transform = Transform( 1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0 )
-mesh = SubResource( 27 )
-
-[node name="generic_platform23" type="StaticBody" parent="3D/world/Level_one/Generic_platforms/Middle_platforms"]
-transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 11, 237.054, 0, 19.9225 )
-
-[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform23"]
-transform = Transform( 1, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 0 )
-shape = SubResource( 26 )
-
-[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform23/CollisionShape"]
-transform = Transform( 1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0 )
-mesh = SubResource( 27 )
-
-[node name="generic_platform24" type="StaticBody" parent="3D/world/Level_one/Generic_platforms/Middle_platforms"]
-transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 11, 237.054, 0, 99.9703 )
-
-[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform24"]
-transform = Transform( 1, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 0 )
-shape = SubResource( 26 )
-
-[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform24/CollisionShape"]
-transform = Transform( 1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0 )
-mesh = SubResource( 27 )
-
-[node name="generic_platform25" type="StaticBody" parent="3D/world/Level_one/Generic_platforms/Middle_platforms"]
-transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 11, 306.762, 0, 59.4294 )
-
-[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform25"]
-transform = Transform( 1, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 0 )
-shape = SubResource( 26 )
-
-[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform25/CollisionShape"]
-transform = Transform( 1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0 )
-mesh = SubResource( 27 )
-
-[node name="generic_platform26" type="StaticBody" parent="3D/world/Level_one/Generic_platforms/Middle_platforms"]
-transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 11, 306.762, 0, -103.425 )
-
-[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform26"]
-transform = Transform( 1, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 0 )
-shape = SubResource( 26 )
-
-[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform26/CollisionShape"]
-transform = Transform( 1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0 )
-mesh = SubResource( 27 )
-
-[node name="generic_platform27" type="StaticBody" parent="3D/world/Level_one/Generic_platforms/Middle_platforms"]
-transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 11, 306.762, 0, -61.3952 )
-
-[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform27"]
-transform = Transform( 1, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 0 )
-shape = SubResource( 26 )
-
-[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform27/CollisionShape"]
-transform = Transform( 1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0 )
-mesh = SubResource( 27 )
-
-[node name="generic_platform28" type="StaticBody" parent="3D/world/Level_one/Generic_platforms/Middle_platforms"]
-transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 11, 306.762, 0, -22.8634 )
-
-[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform28"]
-transform = Transform( 1, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 0 )
-shape = SubResource( 26 )
-
-[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform28/CollisionShape"]
-transform = Transform( 1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0 )
-mesh = SubResource( 27 )
-
-[node name="generic_platform29" type="StaticBody" parent="3D/world/Level_one/Generic_platforms/Middle_platforms"]
-transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 11, 306.762, 0, 19.9225 )
-
-[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform29"]
-transform = Transform( 1, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 0 )
-shape = SubResource( 26 )
-
-[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform29/CollisionShape"]
-transform = Transform( 1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0 )
-mesh = SubResource( 27 )
-
-[node name="generic_platform30" type="StaticBody" parent="3D/world/Level_one/Generic_platforms/Middle_platforms"]
-transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 11, 306.762, 0, 99.9703 )
-
-[node name="CollisionShape" type="CollisionShape" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform30"]
-transform = Transform( 1, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 0 )
-shape = SubResource( 26 )
-
-[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/generic_platform30/CollisionShape"]
+[node name="MeshInstance" type="MeshInstance" parent="3D/world/Level_one/Generic_platforms/Middle_platforms/middle_right/generic_platform24/CollisionShape"]
 transform = Transform( 1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0, 0 )
 mesh = SubResource( 27 )
 
@@ -942,6 +876,7 @@ environment = SubResource( 18 )
 [connection signal="pressed" from="2D/End_menu/exit_button" to="2D/start_menu_node/quit_button" method="_on_exit_button_pressed"]
 [connection signal="pressed" from="2D/End_menu/exit_button" to="2D/start_menu_node/name_lable" method="_on_exit_button_pressed"]
 [connection signal="pb" from="2D/End_menu/high_score_lable" to="3D/world/Level_one/Fin_one/finish_zone" method="_on_high_score_lable_pb"]
+[connection signal="pressed" from="2D/start_menu_node/start_button" to="2D/timer_lable" method="_on_start_button_pressed"]
 [connection signal="pressed" from="2D/start_menu_node/start_button" to="2D/timer_lable" method="_on_Button_pressed"]
 [connection signal="pressed" from="2D/start_menu_node/start_button" to="2D/End_menu/end_menu_mesh" method="_on_Button_pressed"]
 [connection signal="pressed" from="2D/start_menu_node/start_button" to="2D/End_menu/reset_button" method="_on_Button_pressed"]

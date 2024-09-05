@@ -5,7 +5,7 @@ extends KinematicBody
 # var a = 2
 # var b = "text"
 
-export var jump_strength := 30.0
+export var jump_strength := 35.0
 export var speed := 30
 export var gravity := 50.0
 

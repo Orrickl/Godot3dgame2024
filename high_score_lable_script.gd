@@ -5,6 +5,11 @@ signal pb(pb)
 var content
 
 
+func _input(_event):
+	if (Input.get_action_strength("reset")!=0):
+		visible = false
+
+
 func _on_Button_pressed():
 	visible = false
 
