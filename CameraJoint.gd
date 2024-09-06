@@ -8,8 +8,8 @@ var escape = false
 #or, if its a mouse movement rotate the spring arm within certain bounds
 func _unhandled_input(event: InputEvent) -> void:
 	#if reset is pushed
-	if(Input.get_action_strength("reset")!=0):
-		#set cortrect mouse mode
+	if(Input.get_action_strength("reset") != 0):
+		#set correct mouse mode
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		#set mouse sensitivity
 		mouse_sensitivity = 0.15
@@ -28,7 +28,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		rotation_degrees.y = wrapf(rotation_degrees.y, 0.0, 360.0)
 	
 	#if the  rteset key is  pushed
-	if(Input.get_action_strength("reset")!=0):
+	if(Input.get_action_strength("reset") != 0):
 		#rotate character to be looking straight ahead
 		rotation_degrees.x = 0
 		rotation_degrees.y = -90
@@ -55,8 +55,7 @@ func _on_reset_button_pressed():
 	mouse_sensitivity = 0.15
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
-
-#
+#if end menu visibilty changes mouse sensitivity
 func _on_end_menu_mesh_pressed(_value):
 	if (mouse_sensitivity == 0.15):
 		mouse_sensitivity = 0

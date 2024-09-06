@@ -12,7 +12,7 @@ signal post()
 #if a button is pushed 
 func _input(_event):
 	#toggle menu visibility
-	if (Input.get_action_strength("escape")!=0 and paused == false):
+	if (Input.get_action_strength("escape") != 0 and paused == false):
 		pressed = true
 	if (Input.get_action_strength("escape") == 0) and (pressed == true):
 		if (visible == true):
@@ -23,7 +23,7 @@ func _input(_event):
 		#emit signal about pressed signal
 		emit_signal("pressed", pressed)
 	#if reset pushed make menu invisible
-	if (Input.get_action_strength("reset")!=0):
+	if (Input.get_action_strength("reset") != 0):
 		visible = false
 		paused = false
 	

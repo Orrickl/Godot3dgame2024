@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=2]
+[gd_scene load_steps=55 format=2]
 
 [ext_resource path="res://timer.gd" type="Script" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
@@ -10,33 +10,9 @@
 [ext_resource path="res://end_menu.gd" type="Script" id=8]
 [ext_resource path="res://Label_end.gd" type="Script" id=9]
 [ext_resource path="res://high_score_lable_script.gd" type="Script" id=10]
+[ext_resource path="res://finish_script.gd" type="Script" id=11]
+[ext_resource path="res://menu_name.gd" type="Script" id=12]
 [ext_resource path="res://quit_button_script.gd" type="Script" id=13]
-[ext_resource path="res://Label2.gd" type="Script" id=14]
-[ext_resource path="res://Finish_script.gd" type="Script" id=16]
-
-[sub_resource type="GDScript" id=48]
-script/source = "extends Control
-
-var data_to_send
-var timer = 0
-onready var http_request = $HTTPRequest
-
-
-var url = \"https://meowfacts.herokuapp.com/\"
-
-#var json = JSON.data_to_send
-var headers = [\"Content-Type: application/json\"]
-
-
-
-#func _on_end_menu_mesh_post():
-	#$HTTPRequest.request(url, headers, HTTPClient.METHOD_POST, json)
-
-
-#func _on_HTTPRequest_request_completed(result, response_code, headers, body):
-#	print(body.get_string_from_utf8())
-
-"
 
 [sub_resource type="QuadMesh" id=22]
 
@@ -150,7 +126,6 @@ text = "\"0.1\""
 script = ExtResource( 1 )
 
 [node name="EndMenuNode" type="Control" parent="2D"]
-script = SubResource( 48 )
 
 [node name="end_menu_mesh" type="MeshInstance2D" parent="2D/EndMenuNode"]
 position = Vector2( 507, 297 )
@@ -228,7 +203,7 @@ margin_bottom = 232.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Run and Jump"
-script = ExtResource( 14 )
+script = ExtResource( 12 )
 
 [node name="3D" type="Node" parent="."]
 
@@ -296,7 +271,7 @@ mesh = SubResource( 9 )
 transform = Transform( 0.667, 0, 0, 0, 3, 0, 0, 0, 2, 1.68013, 9.18452, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="3D/World/Level/start_platform_one/start_area_one"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5058, 0.605266, 0 )
+transform = Transform( 3, 0, 0, 0, 5, 0, 0, 0, 2, 0.5058, 0.605266, 0 )
 shape = SubResource( 10 )
 
 [node name="Finish" type="Spatial" parent="3D/World/Level"]
@@ -304,7 +279,7 @@ transform = Transform( 1, 0, 0, 0, 2, 0, 0, 0, 2, 577.74, 0, -5.20362 )
 
 [node name="finish_zone" type="Area" parent="3D/World/Level/Finish"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 3, 393.698, 9.44165, 0 )
-script = ExtResource( 16 )
+script = ExtResource( 11 )
 
 [node name="CollisionShape" type="CollisionShape" parent="3D/World/Level/Finish/finish_zone"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015686, 0.405303, 0 )
@@ -899,8 +874,8 @@ environment = SubResource( 18 )
 [connection signal="pressed" from="2D/EndMenuNode/exit_button" to="2D/StartMenuNode/quit_button" method="_on_exit_button_pressed"]
 [connection signal="pressed" from="2D/EndMenuNode/exit_button" to="2D/StartMenuNode/name_lable" method="_on_exit_button_pressed"]
 [connection signal="pb" from="2D/EndMenuNode/high_score_lable" to="3D/World/Level/Finish/finish_zone" method="_on_high_score_lable_pb"]
-[connection signal="pressed" from="2D/StartMenuNode/start_button" to="2D/timer_lable" method="_on_Button_pressed"]
 [connection signal="pressed" from="2D/StartMenuNode/start_button" to="2D/timer_lable" method="_on_start_button_pressed"]
+[connection signal="pressed" from="2D/StartMenuNode/start_button" to="2D/timer_lable" method="_on_Button_pressed"]
 [connection signal="pressed" from="2D/StartMenuNode/start_button" to="2D/EndMenuNode/end_menu_mesh" method="_on_Button_pressed"]
 [connection signal="pressed" from="2D/StartMenuNode/start_button" to="2D/EndMenuNode/reset_button" method="_on_Button_pressed"]
 [connection signal="pressed" from="2D/StartMenuNode/start_button" to="2D/EndMenuNode/exit_button" method="_on_Button_pressed"]
