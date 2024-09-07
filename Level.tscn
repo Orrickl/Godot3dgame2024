@@ -869,6 +869,7 @@ environment = SubResource( 18 )
 [connection signal="pressed" from="2D/EndMenuNode/reset_button" to="2D/EndMenuNode/high_score_lable" method="_on_reset_button_pressed"]
 [connection signal="pressed" from="2D/EndMenuNode/reset_button" to="3D/player" method="_on_reset_button_pressed"]
 [connection signal="pressed" from="2D/EndMenuNode/reset_button" to="3D/player/SpringArm" method="_on_reset_button_pressed"]
+[connection signal="pressed" from="2D/EndMenuNode/exit_button" to="2D/EndMenuNode/exit_button" method="_on_exit_button_pressed"]
 [connection signal="pressed" from="2D/EndMenuNode/exit_button" to="2D/StartMenuNode/start_menu" method="_on_exit_button_pressed"]
 [connection signal="pressed" from="2D/EndMenuNode/exit_button" to="2D/StartMenuNode/start_button" method="_on_exit_button_pressed"]
 [connection signal="pressed" from="2D/EndMenuNode/exit_button" to="2D/StartMenuNode/quit_button" method="_on_exit_button_pressed"]

@@ -35,9 +35,15 @@ func _on_Finish_body_entered(_body):
 func _on_Button_pressed():
 	visible = false
 	paused = false
+	escape = false
 
 
 #if reset button on  end menu pushed make invisible
 func _on_reset_button_pressed():
 	visible = false
 	paused = false
+
+
+func _on_exit_button_pressed():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
