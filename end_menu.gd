@@ -25,6 +25,7 @@ func _input(_event):
 		escape = false
 		paused = false
 
+
 #if end zone entered make menu invisible
 func _on_Finish_body_entered(_body):
 	visible = true
